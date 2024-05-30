@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/now");
+@import url("https://fonts.cdnfonts.com/css/hk-groteks");
+
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Reddit+Mono:wght@200..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+    --nav-burger-container-width: 50px;
+    --nav-burger-container-height: var(--nav-burger-container-width);
+
+    --nav-burger-container-width-sm: 70px;
+    --nav-burger-container-height-sm: var(--nav-burger-container-width-sm);
+
+    --nav-burger-container-width-2xl: 80px;
+    --nav-burger-container-height-2xl: var(--nav-burger-container-width-2xl);
+
+    --nav-burger-width: 24px;
+    --nav-burger-width-sm: 30px;
+
+    --text-font-size_menu: 4rem;
+    --text-line-height_menu: 4.25rem;
+    --bezier-animation_menu: cubic-bezier(.15,.83,.24,1.01);
+
+    --main-padding: 10px;
+    --main-padding-sm: 25px;
+    --main-padding-lg: 35px;
+    --main-padding-2xl: 50px;
+
+    --x-nav-motionValue: calc(-1 * var(--main-padding));
+    --x-nav-motionValue-sm: calc(-1 * var(--main-padding-sm));
+    --x-nav-motionValue-lg: calc(-1 * var(--main-padding-lg));
+    --x-nav-motionValue-2xl: calc(-1 * var(--main-padding-2xl));
+
+    --shadow-elevation-low:
+        rgba(0, 0, 0, 0.07) 0px 1px 1px,
+        rgba(0, 0, 0, 0.07) 0px 2px 2px,
+        rgba(0, 0, 0, 0.07) 0px 4px 4px,
+        rgba(0, 0, 0, 0.07) 0px 8px 8px,
+        rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
+    --shadow-elevation-middle:
+        rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+        rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+}
+
+
+@media (prefers-color-scheme: dark) {
+  /*:root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+
+  }*/
+}
+
+/*
+    HTML / BODY
+ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, main, :root {
+    @apply w-full h-full
+}
+
+html { /*scroll-behavior: smooth;*/ }
+body, section {
+    @apply font-system text-zinc-950 bg-zinc-100;
+}
+
+/*
+    smoothScroll with Framer Motion
+ */
+
+/*body {
+    overscroll-behavior-y: none;
+    user-select: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.scroll-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    will-change: transform;
+}*/
+
+
+/*
+    SCROLLBAR Hide
+ */
+
+.scrollbar-hide::-webkit-scrollbar {
+    padding-top: 5px;
+    padding-right: 20px;
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    padding-top: 5px;
+    padding-right: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+/*
+    NAV
+ */
+
+#_nav { @apply text-zinc-100 }
+#_overlay { @apply fixed w-full min-h-[100dvh] bg-zinc-950 invisible opacity-0 transition-opacity duration-[200ms] ease-out cursor-pointer }
+.navOpen #_overlay { @apply visible opacity-80 }
+
+/* BURGER */
+#_burger_container { @apply flex items-center justify-center
+    w-[var(--nav-burger-container-width)] h-[var(--nav-burger-container-height)]
+    sm:w-[var(--nav-burger-container-width-sm)] sm:h-[var(--nav-burger-container-height-sm)]
+    2xl:w-[var(--nav-burger-container-width-2xl)] 2xl:h-[var(--nav-burger-container-height-2xl)] }
+#_burger_container,
+#_burger_container span { @apply transition-colors duration-[200ms] ease-out }
+
+#_burger { @apply relative top-[2px] sm:top-[5px] w-[var(--nav-burger-width)] h-[var(--nav-burger-width)] sm:w-[var(--nav-burger-width-sm)] sm:h-[var(--nav-burger-width-sm)] rotate-0 transition-all duration-500 ease-out }
+#_burger span { @apply block absolute h-[2px] w-full bg-zinc-100 left-0 rotate-0 transition-all duration-[200ms] ease-out }
+#_burger span:nth-child(1) { @apply w-full sm:w-[70%] top-[2px] sm:top-0 }
+#_burger span:nth-child(2) { @apply top-[10px] sm:top-[10px] }
+#_burger span:nth-child(3) { @apply w-full sm:w-[40%] top-[18px] sm:top-[20px] }
+.navOpen #_burger_container #_burger span,
+#_nav #_burger_container:hover #_burger span { @apply w-full }
+
+.navOpen #_burger_container #_burger span:nth-child(1) { @apply top-[11px] rotate-[135deg] }
+.navOpen #_burger_container #_burger span:nth-child(2) { @apply left-[-60px] opacity-0 }
+.navOpen #_burger_container #_burger span:nth-child(3) { @apply top-[11px] -rotate-[135deg] }
+
+.navOpen #_burger_container { @apply bg-zinc-100 }
+.navOpen #_burger_container span { @apply bg-zinc-950 }
+.navOpen #_burger_container:hover span { @apply scale-90 }
+
+/* MENU */
+#_bg_menu li a {  }
+#_bg_menu li a ._underscore { @apply invisible }
+#_bg_menu li a:hover ._underscore { @apply visible }
+
+/* ARROW */
+#_arrow, #_arrow i, #_arrow svg { @apply transition-colors duration-[200ms] ease-out }
+.navOpen #_arrow { @apply bg-zinc-100 }
+.navOpen #_arrow svg { @apply text-zinc-950; }
+#_arrow { @apply cursor-pointer }
+.navOpen #_arrow i { @apply border-zinc-950 }
+
+
+/*
+    SECTIONS
+ */
+
+section { @apply overflow-hidden relative z-10 clear-both }
+section ._sound-container-05 canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+section ._sound-container-06 { @apply bg-rose-950 }
+/*._section canvas { @apply block absolute top-0 left-0 z-0 !w-[100%] !h-[100%] }*/
+section canvas:nth-child(2) { @apply hidden }
+h2 {
+    font-size: clamp(2.75rem, 10vw, 9rem);
+    line-height: clamp(2.75rem, 10vw, 9rem);
+    @apply font-hkgrotesk font-[300] }
+
+h3 {
+    @apply font-hkgrotesk font-[400] }
+
+/*
+    SLIDERS (v2)
+ */
+
+
+/*
+    SLIDERS (v1)
+ */
+/*#_projects .slick-slider,
+#_projects .slick-list,
+#_projects .slick-slide,
+#_projects .slick-track { @apply !min-h-full flex }
+
+#_projects .slick-slider .slick-slide div { @apply w-full }
+#_projects .slick-slider ._slick-slide._img { @apply relative }*/
+/*
+#_projects .slick-slider ._slick-slide._img img { @apply block absolute top-0 left-0 z-0 !w-[100%] !h-[100%] }
+*/
+
+/*#_projects .slick-dots { @apply bottom-10 z-10 }
+#_projects .slick-prev { @apply left-7 z-10 }
+#_projects .slick-next { @apply right-7 z-10 }*/
+
+
+
+/*
+    RESUME
+ */
+
+/* Experience / Education */
+._resume { box-shadow: var(--shadow-elevation-middle) }
+._resume .exp { @apply pb-[15px] flex }
+._resume .exp .year { @apply text-6xl font-normal flex justify-start items-center lg:w-[18%] }
+._resume .exp .year span { @apply w-[60px] h-[60px] rounded-full bg-white text-zinc-300 text-opacity-95 flex justify-center items-center }
+._resume .exp .details { @apply w-[82%] flex flex-col justify-center }
+._resume .exp h4 { @apply font-[600]}
+
+._resume #_education .year { @apply -mt-2 }
+
+/* Skills */
+._resume #_skills { @apply lg:-mt-32 }
+._resume .lists { @apply grid grid-cols-2 gap-4 sm:gap-12 }
+._resume .lists h4 { @apply mb-2 font-[600] }
+._resume .lists div { }
+._resume .lists ul li { @apply uppercase text-[.7rem] inline-block m-[1px] px-[6px] py-[1px] bg-zinc-200 text-zinc-700 rounded }
+
+/* Languages */
+._resume #_languages .langs { @apply flex justify-center -mt-[5px] }
+._resume #_languages .lang { @apply relative w-[160px] h-[160px] }
+._resume #_languages .lang.fr { @apply -ml-[-5px] }
+._resume #_languages .lang.en { @apply -mr-[-5px] }
+._resume #_languages .svg { @apply w-[160px] h-[160px] }
+._resume #_languages .desc { @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10
+    w-[105px] h-[105px] bg-zinc-100 rounded-full
+    text-[.7rem] leading-[.8rem] text-zinc-500 font-[500] text-center
+    flex flex-col items-center justify-center }
+._resume #_languages .desc span { @apply text-[.7rem] font-bold p-1 uppercase }
+
+/* Hobbies */
+._resume .all-icons { @apply flex items-center content-center justify-center pt-[12px] }
+._resume .all-icons .icons-container { @apply flex flex-col items-center }
+._resume .all-icons .icons-container .icons { @apply h-[60px] flex items-center mx-[12px] }
+._resume .all-icons .icons-container .icons span { @apply w-[75px] h-[75px] rounded-full border-[1px] border-zinc-300 }
+._resume .all-icons .icons-container .icons span span { @apply flex items-center justify-center w-full h-full rounded-full border-[3px] border-white bg-zinc-100 }
+._resume .all-icons .icons-container .subtitle { @apply text-[11px] uppercase mt-4 }
