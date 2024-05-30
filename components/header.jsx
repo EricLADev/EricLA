@@ -22,14 +22,14 @@ const Header = () => {
 
     return (
         <section id="_header" className="_section w-full min-h-[100dvh] h-full relative flex">
-            <Canvas shadows camera={{position: [0, 0, 15], fov: 30}}>
+            {/*<Canvas shadows camera={{position: [0, 0, 15], fov: 30}}>
                 <color attach="background" args={['black']}/>
                 <Experience/>
                 <spotLight position={[10, 10, 10]} angle={0.35} penumbra={1} decay={0} intensity={Math.PI}/>
                 <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI}/>
                 <AsciiRenderer characters=" ...-+¤=<>10[]#" resolution="0.11" fgColor="#27272a" bgColor="#f4f4f5"/>
             </Canvas>
-            <Infos/>
+            <Infos/>*/}
         </section>
     );
 

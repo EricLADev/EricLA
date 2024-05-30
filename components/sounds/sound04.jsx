@@ -50,7 +50,7 @@ const Sound04 = () => {
                 let rotationValue;
                 let cpt= 0;
 
-                for(let l= 240; l>40; l-= 40) {
+                for(let l= 280; l>40; l-= 40) {
 
                     //if (cpt%2 === 0) {
                         //rotationValue = p.radians(startAngle) + angle + p.sin(p.frameCount * 0.025 * l/1000);
