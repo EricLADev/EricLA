@@ -55,8 +55,8 @@ const Contact = () => {
 
                 <motion.div
                     style={...stylesAnim}
-                    /*className="bg-amber-400 w-full h-auto lg:h-full p-[var(--main-padding)]">*/
-                    className="bg-amber-400 w-full h-auto lg:h-full p-3">
+                    /*className="bg-amber-500 w-full h-auto lg:h-full p-[var(--main-padding)]">*/
+                    className="bg-amber-500 w-full h-auto lg:h-full p-3">
                     <div className="w-full max-w-[1900px] py-20 mx-auto h-auto lg:h-full lg:flex lg:justify-center lg:items-center">
 
                         <div className="w-full lg:w-1/2 max-w-[850px] text-left lg:text-right font-hkgrotesk pr-4 flex flex-col justify-center">
@@ -112,7 +112,7 @@ const Contact = () => {
                             <p className="text-[1.75rem] leading-[1.5rem] lg:text-[2.5rem] lg:leading-[2.5rem] xl:text-[4rem] xl:leading-[3.5rem] uppercase font-light">Contact me here</p>
                             <p className="mt-2 lg:mt-1 xl:mt-3">
                                 <EastIcon className="mt-[-8px] lg:mt-[-15px] xl:mt-[-20px] text-zinc-900 text-[3rem] lg:text-[5rem]" />
-                                <span className="py-1 px-4 bg-zinc-900 text-amber-400 lowercase text-[1.25rem] leading-[1.25rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[2.5rem] xl:leading-[2.75rem]">ela.dev.job@gmail.com</span>
+                                <span className="py-1 px-4 bg-zinc-900 text-amber-500 lowercase text-[1.25rem] leading-[1.25rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[2.5rem] xl:leading-[2.75rem]">ela.dev.job@gmail.com</span>
                             </p>
                             <p className="text-md font-medium mr-[100px]">Copyright © Eric L.A. 2024</p>
                         </div>

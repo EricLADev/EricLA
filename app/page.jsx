@@ -21,7 +21,7 @@ const Home = () => {
                     <Header />
                     <Projects />
                     <Resume />
-                    <Sounds />
+                    {/*<Sounds />*/}
                     <Contact />
                 </main>
             {/*</SmoothScroll>*/}

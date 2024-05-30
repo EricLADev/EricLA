@@ -51,7 +51,7 @@ const ContactForm = () => {
         try {
             setIsLoading(true);
             setButtonIsDisabled(true);
-            await sleep(10000);
+            await sleep(5000);
             await sendContactForm(data);
             setSuccess(true);
         } catch (error) {
@@ -72,13 +72,14 @@ const ContactForm = () => {
     }, [isSubmitted, isSubmitSuccessful, reset])
 
     const ContactButton = styled(Button)({
-        width: '100%',
+        width: '80px',
+        height: '80px',
         boxShadow: 'none',
         textTransform: 'uppercase',
         fontSize: '.9rem',
         padding: '20px 20px 18px',
         border: '0 none',
-        borderRadius: 0,
+        borderRadius: '50%',
         lineHeight: 1.5,
         backgroundColor: '#1c1917',
         '&:hover': {
@@ -207,7 +208,7 @@ const ContactForm = () => {
                     render={({message}) => <p className={tailWErrorClassName}>{message}</p>}
                 />
                 <div className="pt-3 flex items-center">
-                    <ContactButton id="contactButton" className="bg-zinc-900 disabled:bg-amber-800 w-[80px] h-[80px] rounded-full" disabled={buttonIsDisabled} type="submit" variant="contained">
+                    <ContactButton id="contactButton" className="bg-zinc-900 disabled:bg-amber-800" disabled={buttonIsDisabled} type="submit" variant="contained">
                         { isLoading && (
                             <span className="_loader">
                                 <svg aria-hidden="true"
