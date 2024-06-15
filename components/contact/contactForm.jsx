@@ -126,7 +126,7 @@ const ContactForm = () => {
 
     return (
         <Box
-            sx={{
+            /*sx={{
                 '& .MuiInputLabel-root': { textTransform: 'uppercase', fontSize: '1rem', fontWeight: '500', marginTop: '-12px', marginLeft: '-10px', letterSpacing: '-.25px', color: '#18181b' },
                 '& .MuiFormLabel-root.Mui-focused': { color: '#c2410c'},
                 '& .MuiInputLabel-asterisk': { color: '#c2410c', fontSize: '.85rem', marginLeft: '4px', position: 'relative', top: '-2px'},
@@ -135,6 +135,9 @@ const ContactForm = () => {
                 '& .MuiTextField-root': { width: '100%' },
                 '& .MuiInputBase-input': { fontSize: styles_MuiInputBaseInput_fontSize, height: styles_MuiInputBaseInput_height, fontWeight: '400', paddingLeft: '1px', paddingBottom: '0' },
                 '& .MuiInputBase-multiline': { paddingTop: '40px', paddingLeft: '1px' },
+            }}*/
+            sx={{
+                '& .MuiTextField-root': { width: '100%' },
             }}
             component="form"
             noValidate
@@ -145,39 +148,36 @@ const ContactForm = () => {
         >
             <motion.div
                 id="_loading-contact"
-                className="absolute z-0 top-0 left-0 w-full h-full bg-amber-500 opacity-0 flex justify-center items-center"
+                className="absolute z-0 top-0 left-0 w-full h-full bg-amber-600 opacity-0 flex justify-center items-center"
                 initial={"nok"}
                 animate={isLoading ? "ok" : "nok"}
                 variants={loadingVariants}
             >
             </motion.div>
             <fieldset>
-                <div className="pt-3">
-                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-basic" label="First Name" variant="filled"
+                <div className="pt-3 flex items-start">
+                    {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">First Name</div>*/}
+                    <TextField required disabled={isLoading} id="standard-basic" label="First Name" variant="standard"
                                inputProps={{maxLength: 40}} {...register("firstName", {
                         required: "This is required.",
                         maxLength: {value: 40, message: "40 letters max."}
                     })} />
                 </div>
-                <ErrorMessage
-                    errors={errors}
-                    name="firstName"
-                    render={({message}) => <p className={tailWErrorClassName}>{message}</p>}
-                />
-                <div className="pt-3">
-                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-basic" label="Last Name" variant="filled"
+                <ErrorMessage errors={errors} name="firstName" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
+                <div className="pt-3 flex items-start">
+                    {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">Last Name</div>*/}
+                    <TextField required disabled={isLoading} id="standard-basic"
+                               label="Last Name" variant="standard"
                                inputProps={{maxLength: 40}} {...register("lastName", {
                         required: "This is required.",
                         maxLength: {value: 40, message: "40 letters max."}
                     })} />
                 </div>
-                <ErrorMessage
-                    errors={errors}
-                    name="lastName"
-                    render={({message}) => <p className={tailWErrorClassName}>{message}</p>}
-                />
-                <div className="pt-3">
-                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-basic" label="Email" variant="filled"
+                <ErrorMessage errors={errors} name="lastName" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
+                <div className="pt-3 flex items-start">
+                    {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">Email</div>*/}
+                    <TextField required disabled={isLoading} id="standard-basic"
+                               label="Email" variant="standard"
                                inputProps={{maxLength: 50}} {...register("email", {
                         required: "This is required.",
                         maxLength: {value: 50, message: "50 letters max."},
@@ -187,26 +187,20 @@ const ContactForm = () => {
                         }
                     })} />
                 </div>
-                <ErrorMessage
-                    errors={errors}
-                    name="email"
-                    render={({message}) => <p className={tailWErrorClassName}>{message}</p>}
-                />
-                <div className="pt-3 relative">
-                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-multiline-static" label="Message"
+                <ErrorMessage errors={errors} name="email" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
+                <div className="pt-3 relative flex items-start">
+                    {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">Message</div>*/}
+                    <TextField required disabled={isLoading}
+                               id="standard-multiline-flexible" label="Message"
                                inputProps={{maxLength: 300, className: 'scrollbar-hide'}}
-                               multiline minRows={5} maxRows={5} variant="filled" {...register("message", {
+                               multiline minRows={5} maxRows={5} variant="standard" {...register("message", {
                         onChange: (e) => {
                             setText(e.target.value);
                         }, required: "This is required.", maxLength: 300
                     })} />
                     <p className="absolute bottom-2 right-2 text-[.7rem] w-[55px] h-[15px] text-right -rotate-90 translate-x-6 -translate-y-3 font-[roboto]">{text.length} / {maxCharacterCount}</p>
                 </div>
-                <ErrorMessage
-                    errors={errors}
-                    name="message"
-                    render={({message}) => <p className={tailWErrorClassName}>{message}</p>}
-                />
+                <ErrorMessage errors={errors} name="message" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 flex items-center">
                     <ContactButton id="contactButton" className="bg-zinc-900 disabled:bg-amber-800" disabled={buttonIsDisabled} type="submit" variant="contained">
                         { isLoading && (

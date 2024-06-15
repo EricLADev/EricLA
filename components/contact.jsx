@@ -1,44 +1,88 @@
 "use client"
 
-import ContactP5 from "@components/contact/contactP5";
 import ContactForm from "@components/contact/contactForm";
-import Sound from "@components/sounds/sound";
 import Image from 'next/image';
-//import contactImg from "@public/assets/images/animation_phone_04.gif";
-//import contactImg from "@public/assets/images/phone01_center.gif";
-import contactImg from "@public/assets/images/mail01_center.gif";
-import bgContact01 from "@public/assets/backgrounds/contact (27).jpg";
-// 18/19/20/21/22/24/27/28/29/30
-import arrow07 from "@public/assets/backgrounds/arrow07.svg";
-import { motion } from "framer-motion";
-import { useTransform, useScroll } from "framer-motion";
+
+
 import React, { useRef } from "react";
 import useDimension from "@hook/useDimension";
 import {useMotionValueEvent} from "@node_modules/framer-motion";
 import eiffel from "@public/assets/icons/eiffel.svg";
 import eiffel_tower from "@public/assets/icons/eiffel-tower.svg";
+import getintouch01 from "@public/assets/contact/getintouch_01_amber.svg";
+import getintouch02 from "@public/assets/contact/getintouch_02_amber.svg";
+import getintouch03 from "@public/assets/contact/getintouch_03_amber.svg";
+import getintouch04 from "@public/assets/contact/getintouch_04_amber.svg";
+
+import getintouch07 from "@public/assets/contact/getintouch_07_amber.svg";
+import getintouch08 from "@public/assets/contact/getintouch_08_amber.svg";
+import getintouch09 from "@public/assets/contact/getintouch_09_amber.svg";
+import getintouch10 from "@public/assets/contact/getintouch_10_amber.svg";
+import getintouch11 from "@public/assets/contact/getintouch_11_amber.svg";
+import getintouch12 from "@public/assets/contact/getintouch_12_amber.svg";
+import getintouch13 from "@public/assets/contact/getintouch_13_amber.svg";
+import getintouch14 from "@public/assets/contact/getintouch_14_amber.svg";
+import getintouch15 from "@public/assets/contact/getintouch_15_amber.svg";
+import getintouch16 from "@public/assets/contact/getintouch_16_amber.svg";
+import getintouch17 from "@public/assets/contact/getintouch_17_amber.svg";
+import getintouch18 from "@public/assets/contact/getintouch_18_amber.svg";
+import getintouch19 from "@public/assets/contact/getintouch_19_amber.svg";
+import getintouch20 from "@public/assets/contact/getintouch_20_amber.svg";
+import getintouch21 from "@public/assets/contact/getintouch_21_amber.svg";
+import getintouch22 from "@public/assets/contact/getintouch_22_amber.svg";
+import getintouch23 from "@public/assets/contact/getintouch_23_amber.svg";
+import getintouch24 from "@public/assets/contact/getintouch_24_amber.svg";
+import getintouch25 from "@public/assets/contact/getintouch_25_amber.svg";
+import getintouch26 from "@public/assets/contact/getintouch_26_amber.svg";
+import getintouch27 from "@public/assets/contact/getintouch_27_amber.svg";
+import getintouch28 from "@public/assets/contact/getintouch_28_amber.svg";
+import getintouch29 from "@public/assets/contact/getintouch_29_amber.svg";
+
+import getintouch30 from "@public/assets/contact/getintouch_30_amber.svg";
+
+import coffee01 from "@public/assets/contact/coffee_01_amber.svg";
+
+import arrows01 from "@public/assets/contact/arrows_01_amber.svg";
+import arrows02 from "@public/assets/contact/arrows_02_amber.svg";
+import arrows03 from "@public/assets/contact/arrows_03_amber.svg";
+
 import metrodeparis from "@public/assets/icons/metrodeparis.svg";
 import france from "@public/assets/icons/france.svg";
 import SouthEastIcon from '@mui/icons-material/SouthEast';
 import ExpandMoreIcon from "@node_modules/@mui/icons-material/ExpandMore";
 import EastIcon from '@mui/icons-material/East';
+import Weather from "@components/contact/weather";
+import react from "@public/assets/icons/react-icon.svg";
+
+import {motion, useAnimationFrame, useScroll, useSpring, useTransform, useVelocity, useMotionValue} from 'framer-motion';
+import { wrap } from "@motionone/utils";
+import Circular from "@components/loops/circular";
+import Bulle3d from "@components/header/bulle3d";
+import {AsciiRenderer, ContactShadows, PresentationControls} from "@node_modules/@react-three/drei";
+import {Canvas, useFrame, useThree} from "@node_modules/@react-three/fiber";
+import LetterO from "@components/header/LetterO";
+import Hi from "@components/header/hi";
+
 
 const Contact = () => {
 
     const { width,height} = useDimension();
     const containerContact = useRef(null);
+    const git01 = useRef(null)
+    //const git02 = useRef(null)
+    const git03 = useRef(null)
     const { scrollYProgress } = useScroll({
         target: containerContact,
         offset: ['start end', 'end start']
     });
     const y   = useTransform(scrollYProgress, [0,.5], [-500, 0]);
     const mt  = useTransform(scrollYProgress, [0,.5], [100, 0]);
-    const op  = useTransform(scrollYProgress, [0,.5], [.5, 1]);
+    const op  = useTransform(scrollYProgress, [0,.5], [.25, 1]);
     const sc  = useTransform(scrollYProgress, [0,.5], [.98, 1]);
     const rty = useTransform(scrollYProgress, [0,.5], [2, 0]);
 
     const stylesAnim= (width>=1024) ? {
-        scale: sc,
+        //scale: sc,
         opacity: op,
         //rotateZ: rty,
         marginTop: mt,
@@ -51,83 +95,69 @@ const Contact = () => {
             <section
                 id="_contact"
                 ref={containerContact}
-                className="relative z-9 w-full lg:min-h-[100dvh] h-auto lg:h-full flex bg-black overflow-hidden">
+                className="relative z-9 w-full lg:min-h-[100dvh] h-full flex bg-black overflow-hidden">
 
-                <motion.div
-                    style={...stylesAnim}
-                    /*className="bg-amber-500 w-full h-auto lg:h-full p-[var(--main-padding)]">*/
-                    className="bg-amber-500 w-full h-auto lg:h-full p-3">
-                    <div className="w-full max-w-[1900px] py-20 mx-auto h-auto lg:h-full lg:flex lg:justify-center lg:items-center">
+                <motion.div style={...stylesAnim} className="bg-amber-500 w-full h-full flex ">
 
-                        <div className="w-full lg:w-1/2 max-w-[850px] text-left lg:text-right font-hkgrotesk pr-4 flex flex-col justify-center">
-                            <p className="text-[6rem] leading-[4.75rem] lg:text-[8rem] lg:leading-[6rem] xl:text-[10rem] xl:leading-[7.5rem] 2xl:text-[12rem] 2xl:leading-[9rem] 3xl:text-[15rem] 3xl:leading-[11rem] uppercase font-bold">Get in</p>
-                            <p className="text-[6rem] leading-[4.75rem] lg:text-[8rem] lg:leading-[6rem] xl:text-[10rem] xl:leading-[7.5rem] 2xl:text-[12rem] 2xl:leading-[9rem] 3xl:text-[15rem] 3xl:leading-[11rem] uppercase font-bold">touch</p>
-                            <p className="mt-2 text-[3.5rem] leading-[3rem] lg:text-[5rem] lg:leading-[4rem] xl:text-[6rem] xl:leading-[5rem] uppercase font-light flex justify-start lg:justify-end">
-                                <span
-                                    className="block relative w-[50px] h-[50px] lg:w-[65px] lg:h-[65px] xl:w-[80px] xl:h-[80px] rounded-full border-2 border-zinc-900 overflow-hidden">
-                                    <Image
-                                        fill
-                                        style={{objectFit: "cover"}}
-                                        src={eiffel}
-                                        alt="Eiffel"
-                                        priority
-                                    />
-                                </span>
-                                <span
-                                    className="ml-2 block relative w-[50px] h-[50px] lg:w-[65px] lg:h-[65px] xl:w-[80px] xl:h-[80px] rounded-full border-2 border-zinc-900 overflow-hidden">
-                                    <Image
-                                        fill
-                                        style={{objectFit: "cover"}}
-                                        src={eiffel_tower}
-                                        alt="Eiffel Tower"
-                                        priority
-                                    />
-                                </span>
-                                Paris
-                                <span
-                                    className="ml-1 block relative w-[50px] h-[50px] lg:w-[65px] lg:h-[65px] xl:w-[80px] xl:h-[80px] rounded-full overflow-hidden">
-                                    <Image
-                                        fill
-                                        style={{objectFit: "cover"}}
-                                        src={metrodeparis}
-                                        alt="Metro de Paris"
-                                        priority
-                                    />
-                                </span>
-                            </p>
-                            <p className="lg:ml-10 text-[3.5rem] leading-[3rem] lg:text-[5rem] lg:leading-[4rem] xl:text-[6rem] xl:leading-[5rem] uppercase font-light flex justify-start lg:justify-end">Orleans</p>
-                            <p className="text-[3.5rem] leading-[3rem] lg:text-[5rem] lg:leading-[4rem] xl:text-[6rem] xl:leading-[5rem] uppercase font-light flex justify-start lg:justify-end">
-                                <span
-                                    className="ml-1 block relative w-[50px] h-[50px] lg:w-[65px] lg:h-[65px] xl:w-[80px] xl:h-[80px] rounded-full overflow-hidden">
-                                    <Image
-                                        fill
-                                        style={{objectFit: "cover"}}
-                                        src={france}
-                                        alt="France"
-                                        priority
-                                    />
-                                </span>
-                                France
-                            </p>
-                            <p className="text-[1.75rem] leading-[1.5rem] lg:text-[2.5rem] lg:leading-[2.5rem] xl:text-[4rem] xl:leading-[3.5rem] uppercase font-light">Contact me here</p>
-                            <p className="mt-2 lg:mt-1 xl:mt-3">
-                                <EastIcon className="mt-[-8px] lg:mt-[-15px] xl:mt-[-20px] text-zinc-900 text-[3rem] lg:text-[5rem]" />
-                                <span className="py-1 px-4 bg-zinc-900 text-amber-500 lowercase text-[1.25rem] leading-[1.25rem] lg:text-[2rem] lg:leading-[2rem] xl:text-[2.5rem] xl:leading-[2.75rem]">ela.dev.job@gmail.com</span>
-                            </p>
-                            <p className="text-md font-medium mr-[100px]">Copyright © Eric L.A. 2024</p>
+                    <div
+                        className="relative w-full h-full p-[var(--main-padding-2xl)] flex flex-col justify-center bg-zinc-950">
+
+                        <div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 h-1/3">
+
+                           {/* <Canvas className="canvas">
+                                <spotLight position={[10, 10, 10]} angle={0.35} penumbra={1} decay={0} intensity={Math.PI}/>
+                                <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI}/>
+                                <ContactShadows opacity={1} scale={10} blur={1} far={10} resolution={256} color="#000000" />
+                                <PresentationControls
+                                    global
+                                    config={{ mass: 2, tension: 500 }}
+                                    snap={{ mass: 4, tension: 1500 }}
+                                    rotation={[0, 0.3, 0]}
+                                    polar={[-Math.PI / 3, Math.PI / 3]}
+                                    azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
+                                    <Earth />
+                                </PresentationControls>
+                            </Canvas>*/}
                         </div>
 
-                        <div className="w-full lg:w-1/2 max-w-[850px] flex flex-col justify-center lg:pl-4 mt-5 lg:mt-0">
-                            <div className="flex items-center">
-                                <p className="ml-[-10px]"><SouthEastIcon sx={{color: '#18181b', fontSize: '5rem'}} /></p>
-                                <p className="text-[1.4rem] leading-[1.25rem] font-bold uppercase">Or<br/>Send a message<br/>Here</p>
-                            </div>
-                            <div className="w-full lg:max-w-[400px] xl:max-w-[550px] mt-[7px]">
-                                <ContactForm/>
-                            </div>
-                        </div>
+                        <Circular clssnm={"absolute top-[8.5%] left-[8.5%] size-[83%] flex justify-center items-center"}
+                                  baseVelocity={-.95}>
+                            <Image
+                                style={{width: '100%', height: '100%'}}
+                                src={getintouch30}
+                                alt="Getintouch02"
+                                priority
+                            />
+                        </Circular>
+
+                        <Circular clssnm={"absolute top-[16%] left-[16%] size-[68%] flex justify-center items-center"}
+                                  baseVelocity={.95}>
+                            <Image
+                                style={{width: '100%', height: '100%'}}
+                                src={getintouch30}
+                                alt="Getintouch02"
+                                priority
+                            />
+                        </Circular>
+
+                        <Circular
+                            clssnm={"absolute top-[22.5%] left-[22.5%] size-[55%] flex justify-center items-center"}
+                            baseVelocity={.45}>
+                            <Image
+                                style={{width: '100%', height: '100%'}}
+                                src={getintouch30}
+                                alt="Getintouch02"
+                                priority
+                            />
+                        </Circular>
 
                     </div>
+
+                    <div className="w-full h-full p-[var(--main-padding-2xl)] flex flex-col justify-center">
+                        <ContactForm/>
+                    </div>
+
                 </motion.div>
 
             </section>
@@ -135,5 +165,16 @@ const Contact = () => {
     );
 };
 
+function Earth(props) {
+    const ref = useRef()
+    const viewport = useThree((state) => state.viewport)
+    useFrame((state, delta) => (ref.current.rotation.x = ref.current.rotation.y += delta / 2))
+    return (
+        <mesh scale={Math.min(viewport.width, viewport.height) / 5} {...props} ref={ref}>
+            <sphereGeometry args={[1, 50, 50, 20]} />
+            <meshStandardMaterial color="red" />
+        </mesh>
+    )
+}
 
 export default Contact;

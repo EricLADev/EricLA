@@ -16,6 +16,9 @@ module.exports = {
         hkgrotesk: ['Hanken Grotesk', 'sans-serif'],
         now: ['Now', 'sans-serif'],
         noto: ["Noto Sans", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        circular: ["Euclid Circular A", "sans-serif"],
+        circularSTXTBlack: ["CircularSpotifyTxT-Black", "sans-serif"],
       },
       screens: {
         '3xl': '1800px',

@@ -59,7 +59,7 @@ const Resume = () => {
                 className="absolute z-0 top-[-25%] left-[-10%] w-[120%] min-h-[150%] flex content-center justify-center items-center">
 
                 <motion.div style={{y: y01, rotateZ: r01}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-zinc-900 overflow-hidden">
+                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#0A0903] overflow-hidden">
                     <Image
                         fill
                         className="opacity-80"
@@ -72,7 +72,7 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div style={{y: y02, rotateZ: r02}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-amber-600">
+                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#FF7900]">
                     <Image
                         fill
                         className="opacity-50"
@@ -85,7 +85,7 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div style={{y: y03, rotateZ: r03}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#31363F] overflow-hidden">
+                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#6497b1] overflow-hidden">
                     <Image
                         fill
                         className="opacity-50"
@@ -98,7 +98,7 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div style={{y: y04, rotateZ: r04}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#76ABAE]">
+                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#FFF4D5]">
                     <Image
                         fill
                         className="opacity-50"
@@ -111,7 +111,7 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div style={{y: y05, rotateZ: r05}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-amber-500">
+                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#FFC929]">
                     <Image
                         fill
                         className="opacity-80"
@@ -124,7 +124,7 @@ const Resume = () => {
                 </motion.div>
 
                 <motion.div style={{y: y06, rotateZ: r06}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-zinc-900">
+                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#03396c]">
                     <Image
                         fill
                         className="opacity-50"

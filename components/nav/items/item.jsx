@@ -36,7 +36,7 @@ const Item = ({ itemTitle, itemLink }) => {
     return (
         <>
             <motion.a
-                className="block font-light uppercase cursor-pointer text-[3rem] leading-[3rem] h-[54px] md:text-[3.5rem] md:leading-[3.5rem] md:h-[62px]"
+                className="block font-light uppercase cursor-pointer text-[3rem] leading-[3rem] h-[54px] md:text-[3.5rem] md:leading-[3.3rem] md:h-[58px]"
                 //href={itemLink}
                 data-anchor={itemLink}
                 onClick={goToAnchor}

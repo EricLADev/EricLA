@@ -91,7 +91,7 @@ const Projects = () => {
     ];
 
     return (
-        <section ref={containerProjects} id="_projects" className="relative overflow-visible lg:h-[700vh]">
+        <section ref={containerProjects} id="_projects" className="relative overflow-visible h-auto lg:h-[700vh]">
 
             {/*<motion.div
                 animate={{

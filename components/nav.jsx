@@ -39,7 +39,7 @@ const Nav = () => {
     return (
         <>
             <div id="_nav">
-                <Logo />
+                {/*<Logo />*/}
                 <Burger onToggleClick={handleToggleNavOpen} isOpen={open}/>
                 <Menu isOpen={open}/>
                 <Arrow isScrolling={isScrolling} />

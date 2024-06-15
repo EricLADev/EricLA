@@ -3,9 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.cdnfonts.com/css/now");
 @import url("https://fonts.cdnfonts.com/css/hk-groteks");
+@import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
+@import url("https://db.onlinewebfonts.com/c/01173b246d9d9ea808ea75a26b3b61bb?family=CircularSpotifyTxT-Black");
 
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Reddit+Mono:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -22,7 +25,7 @@
     --nav-burger-container-width-2xl: 80px;
     --nav-burger-container-height-2xl: var(--nav-burger-container-width-2xl);
 
-    --nav-burger-width: 24px;
+    --nav-burger-width: 18px;
     --nav-burger-width-sm: 30px;
 
     --text-font-size_menu: 4rem;
@@ -138,17 +141,17 @@ body, section {
 #_burger_container,
 #_burger_container span { @apply transition-colors duration-[200ms] ease-out }
 
-#_burger { @apply relative top-[2px] sm:top-[5px] w-[var(--nav-burger-width)] h-[var(--nav-burger-width)] sm:w-[var(--nav-burger-width-sm)] sm:h-[var(--nav-burger-width-sm)] rotate-0 transition-all duration-500 ease-out }
+#_burger { @apply relative top-[0px] sm:top-[5px] w-[var(--nav-burger-width)] h-[var(--nav-burger-width)] sm:w-[var(--nav-burger-width-sm)] sm:h-[var(--nav-burger-width-sm)] rotate-0 transition-all duration-500 ease-out }
 #_burger span { @apply block absolute h-[2px] w-full bg-zinc-100 left-0 rotate-0 transition-all duration-[200ms] ease-out }
 #_burger span:nth-child(1) { @apply w-full sm:w-[70%] top-[2px] sm:top-0 }
-#_burger span:nth-child(2) { @apply top-[10px] sm:top-[10px] }
-#_burger span:nth-child(3) { @apply w-full sm:w-[40%] top-[18px] sm:top-[20px] }
+#_burger span:nth-child(2) { @apply top-[9px] sm:top-[10px] }
+#_burger span:nth-child(3) { @apply w-full sm:w-[40%] top-[16px] sm:top-[20px] }
 .navOpen #_burger_container #_burger span,
 #_nav #_burger_container:hover #_burger span { @apply w-full }
 
-.navOpen #_burger_container #_burger span:nth-child(1) { @apply top-[11px] rotate-[135deg] }
+.navOpen #_burger_container #_burger span:nth-child(1) { @apply top-[9px] sm:top-[10px] rotate-[135deg] }
 .navOpen #_burger_container #_burger span:nth-child(2) { @apply left-[-60px] opacity-0 }
-.navOpen #_burger_container #_burger span:nth-child(3) { @apply top-[11px] -rotate-[135deg] }
+.navOpen #_burger_container #_burger span:nth-child(3) { @apply top-[9px] sm:top-[10px] -rotate-[135deg] }
 
 .navOpen #_burger_container { @apply bg-zinc-100 }
 .navOpen #_burger_container span { @apply bg-zinc-950 }
@@ -172,7 +175,8 @@ body, section {
  */
 
 section { @apply overflow-hidden relative z-10 clear-both }
-section ._sound-container-05 canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+section ._sound-container-05 canvas { position: absolute; left: 50%; transform: translateX(-50%) }
+/*section ._sound-container-05 canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }*/
 section ._sound-container-06 { @apply bg-rose-950 }
 /*._section canvas { @apply block absolute top-0 left-0 z-0 !w-[100%] !h-[100%] }*/
 section canvas:nth-child(2) { @apply hidden }
@@ -185,9 +189,35 @@ h3 {
     @apply font-hkgrotesk font-[400] }
 
 /*
-    SLIDERS (v2)
+    PROJECTS
  */
 
+.parallax {
+    overflow: hidden;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    margin: 0;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.parallax .scroller {
+    @apply font-circular;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20vh;
+    display: flex;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    letter-spacing: -.75rem;
+}
+
+.parallax span {
+    display: block;
+    margin-right: 30px;
+}
 
 /*
     SLIDERS (v1)
@@ -214,6 +244,7 @@ h3 {
  */
 
 /* Experience / Education */
+._resume h3 { @apply uppercase }
 ._resume { box-shadow: var(--shadow-elevation-middle) }
 ._resume .exp { @apply pb-[15px] flex }
 ._resume .exp .year { @apply text-6xl font-normal flex justify-start items-center lg:w-[18%] }
@@ -249,3 +280,12 @@ h3 {
 ._resume .all-icons .icons-container .icons span { @apply w-[75px] h-[75px] rounded-full border-[1px] border-zinc-300 }
 ._resume .all-icons .icons-container .icons span span { @apply flex items-center justify-center w-full h-full rounded-full border-[3px] border-white bg-zinc-100 }
 ._resume .all-icons .icons-container .subtitle { @apply text-[11px] uppercase mt-4 }
+
+/*
+    CONTACT
+ */
+
+/*#_contactForm label.MuiInputLabel-root {
+    font-size: clamp(1.75rem, 10vw, 3rem);
+    line-height: clamp(1.75rem, 10vw, 3rem);
+}*/

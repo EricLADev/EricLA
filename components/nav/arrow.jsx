@@ -48,13 +48,16 @@ const Arrow = ({ isScrolling }) => {
             initial={"backToTop"}
             animate={isScrolling ? "isScrolling" : "backToTop"}
             variants={arrowVariants}
+            /*whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}*/
         >
             {/*<i className="
                 relative top-[-5px]
                 block w-[24px] h-[24px]
                 border-solid border-zinc-100 border-r-[2px] border-b-[2px]
                 rotate-45"/>*/}
-            <ExpandMoreIcon sx={{ color: '#f5f5f4', fontSize: '2.5rem' }} />
+            {/*<EastIcon className="rotate-90 text-[1.5rem] text-zind-100" sx={{ color: '#f5f5f4', fontSize: '1.5rem', fontWeight: '100' }} />*/}
+            <ArrowDownwardIcon className="text-[1.5rem] sm:text-[2.75rem] text-zinc-100 font-light" />
         </motion.div>
     );
 };

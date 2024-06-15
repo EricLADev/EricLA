@@ -2,153 +2,88 @@
 
 import Image from "@node_modules/next/image";
 import React, {useEffect, useRef} from "react";
-import {motion, useScroll, useTransform} from 'framer-motion';
-import {useAnimation, useInView, useMotionValueEvent} from "@node_modules/framer-motion";
-
-import useDimension from "@hook/useDimension";
-
-import cog01 from "@public/assets/backgrounds/cog01.svg";
-import cog02 from "@public/assets/backgrounds/cog02.svg";
-import cog03 from "@public/assets/backgrounds/cog03.svg";
-import cog04 from "@public/assets/backgrounds/cog04.svg";
-import cog05 from "@public/assets/backgrounds/cog05.svg";
-import cog06 from "@public/assets/backgrounds/cog06.svg";
-import cog07 from "@public/assets/backgrounds/cog07.svg";
-import cog08 from "@public/assets/backgrounds/cog08.svg";
-import cog09 from "@public/assets/backgrounds/cog09.svg";
-import cog10 from "@public/assets/backgrounds/cog10.svg";
+import {motion, useAnimationFrame, useScroll, useSpring, useTransform, useVelocity, useMotionValue} from 'framer-motion';
+import { wrap } from "@motionone/utils";
 
 const Title = ({myText}) => {
 
-    const ref = useRef(null);
-
-    const parent = {
-        hidden: {
-            opacity: 0,
-            y: 1,
-            transition: {
-                when: 'afterChildren',
-            },
-        },
-        visible: {
-            opacity: 1,
-            y: 1,
-            transition: {
-                when: 'beforeChildren',
-                staggerChildren: 0.01,
-                delay: .05,
-                default: {ease: 'easeInOut'},
-            },
-        },
-    };
-
-    const BalanceEntryVariants = {
-        hidden: {
-            //rotate: 20,
-            opacity: 0,
-            //scale: 0.35
-        },
-        visible: {
-            //rotate: 0,
-            opacity: 1,
-            //scale: 1,
-            transition: {
-                ease: 'easeInOut',
-                duration: .35
-            },
-        },
-    };
-
-    const titleH2 = "lastProjects";
-
-    const { height } = useDimension();
     const containerTitle = useRef(null);
-    const { scrollY } = useScroll({
-        target: containerTitle,
-        //offset: ['start end', 'end end']
-    });
-    const r01 = useTransform(scrollY, [0,5000], [0, (height * .5)]);
-    const r02 = useTransform(scrollY, [0,5000], [0, -(height * .5)]);
-
-    const controls = useAnimation();
-    const inView = useInView(ref);
-    useEffect(() => {
-        if (inView) {
-            controls.start("visible");
-        }
-    }, [controls, inView]);
 
     return (
         <div ref={containerTitle}
-             className="relative w-full lg:w-screen h-screen flex items-center justify-center overflow-hidden">
-
-            <div className="absolute top-10 left-1/2 ml-[-200px] w-[400px] bg-red-[0]">
-                <div className="rotate-[-30deg]">
-                    <div className="absolute z-0 size-[500px] top-0 left-[50%] -translate-x-[50%]">
-                        <motion.div style={{rotate: r01}}
-                                    className="relative w-full h-full z-1 rounded-full overflow-hidden">
-                            <Image
-                                fill
-                                className="opacity-[.03]"
-                                style={{objectFit: "cover"}}
-                                //style={{width: '100%', height: 'auto'}}
-                                src={cog03}
-                                alt="Resume"
-                                priority
-                            />
-                        </motion.div>
-                    </div>
-                    <div className="absolute z-0 size-[500px] top-[475px] left-[50%] -translate-x-[50%]">
-                        <motion.div style={{rotate: r02}}
-                                    className="relative w-full h-full z-1 rounded-full overflow-hidden">
-                            <Image
-                                fill
-                                className="opacity-[.03] rotate-[23deg]"
-                                style={{objectFit: "cover"}}
-                                //style={{width: '100%', height: 'auto'}}
-                                src={cog08}
-                                alt="Resume"
-                                priority
-                            />
-                        </motion.div>
-                    </div>
-                </div>
-                <div className="absolute z-0 size-[500px] top-[665px] left-[50%] -translate-x-[50%] ml-[-20px]">
-                    <motion.div style={{rotate: r01}}
-                                className="relative w-full h-full z-1 rounded-full overflow-hidden">
-                        <Image
-                            fill
-                            className="opacity-[.03] rotate-[0deg]"
-                            style={{objectFit: "cover"}}
-                            //style={{width: '100%', height: 'auto'}}
-                            src={cog10}
-                            alt="Resume"
-                            priority
-                        />
-                    </motion.div>
-                </div>
+             className="relative w-full lg:w-screen h-screen flex flex-col overflow-hidden bg-amber-200">
+            <div className="relative -top-[25%] -left-[12.5%] -rotate-12 w-[125%] text-amber-400">
+                <div className="text-amber-300"><ParallaxText baseVelocity={.40}> Derniers Projets </ParallaxText></div>
+                <div className="text-amber-400"><ParallaxText baseVelocity={-.45}> Last Projects </ParallaxText></div>
+                <div className="text-amber-400"><ParallaxText baseVelocity={.55}> Derniers Projets </ParallaxText></div>
+                <div className="text-amber-300"><ParallaxText baseVelocity={.20}> Last Projects </ParallaxText></div>
+                <div className="text-amber-300"><ParallaxText baseVelocity={.45}> Derniers Projets </ParallaxText></div>
+                <div className="text-amber-400"><ParallaxText baseVelocity={-.40}> Last Projects </ParallaxText></div>
+                <div className="text-amber-300"><ParallaxText baseVelocity={.60}> Derniers Projets </ParallaxText></div>
+                <div className="text-amber-400"><ParallaxText baseVelocity={-.45}> Last Projects </ParallaxText></div>
+                <div className="text-amber-300"><ParallaxText baseVelocity={.40}> Derniers Projets </ParallaxText></div>
+                <div className="text-amber-400"><ParallaxText baseVelocity={-.55}> Last Projects </ParallaxText></div>
             </div>
-
-
-            <motion.h2
-                ref={ref}
-                initial="hidden"
-                whileInView="visible"
-                variants={parent}
-                className="flex font-hkgrotesk font-bold uppercase"
-            >
-                {titleH2.split("").map((item, index) => {
-                    return (
-                        <motion.span className="block" variants={BalanceEntryVariants} key={index}>
-                            {item}
-                        </motion.span>
-                    )
-                })}
-            </motion.h2>
-
         </div>
 
     )
+}
+
+function ParallaxText({ children, baseVelocity = 100 }) {
+    const baseX = useMotionValue(0);
+    const { scrollY } = useScroll();
+    const scrollVelocity = useVelocity(scrollY);
+    const smoothVelocity = useSpring(scrollVelocity, {
+        damping: 50,
+        stiffness: 400
+    });
+    const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+        clamp: false
+    });
+
+    /**
+     * This is a magic wrapping for the length of the text - you
+     * have to replace for wrapping that works for you or dynamically
+     * calculate
+     */
+    const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+
+    const directionFactor = useRef(1);
+    useAnimationFrame((t, delta) => {
+        let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+        /**
+         * This is what changes the direction of the scroll once we
+         * switch scrolling directions.
+         */
+        if (velocityFactor.get() < 0) {
+            directionFactor.current = -.65;
+        } else if (velocityFactor.get() > 0) {
+            directionFactor.current = .65;
+        }
+
+        moveBy += directionFactor.current * moveBy * velocityFactor.get();
+
+        baseX.set(baseX.get() + moveBy);
+    });
+
+    /**
+     * The number of times to repeat the child text should be dynamically calculated
+     * based on the size of the text and viewport. Likewise, the x motion value is
+     * currently wrapped between -20 and -45% - this 25% is derived from the fact
+     * we have four children (100% / 4). This would also want deriving from the
+     * dynamically generated number of children.
+     */
+    return (
+        <div className="parallax">
+            <motion.div className="scroller" style={{x}}>
+                <span>{children} </span>
+                <span>{children} </span>
+                <span>{children} </span>
+                <span>{children} </span>
+            </motion.div>
+        </div>
+    );
 }
 
 export default Title;
