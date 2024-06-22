@@ -51,9 +51,10 @@ const ContactForm = () => {
         try {
             setIsLoading(true);
             setButtonIsDisabled(true);
-            await sleep(5000);
+            await sleep(55000);
             await sendContactForm(data);
             setSuccess(true);
+            setText("");
         } catch (error) {
             console.log(error.message);
             setError(true);
@@ -117,11 +118,11 @@ const ContactForm = () => {
     const { width } = useDimension();
 
     let styles_MuiInputBaseInput_height = '3rem';
-    let styles_MuiInputBaseInput_fontSize = '1.35rem';
+    let styles_MuiInputBaseInput_fontSize = '1rem';
 
     if ( width >= 1280 ) {
-        styles_MuiInputBaseInput_height = '4rem';
-        styles_MuiInputBaseInput_fontSize = '1.5rem';
+        styles_MuiInputBaseInput_height = '3.5rem';
+        styles_MuiInputBaseInput_fontSize = '1.25rem';
     }
 
     return (
@@ -137,7 +138,14 @@ const ContactForm = () => {
                 '& .MuiInputBase-multiline': { paddingTop: '40px', paddingLeft: '1px' },
             }}*/
             sx={{
+                '& .MuiFilledInput-root': { backgroundColor: 'rgba(0, 0, 0, 0.0)'},
+                '& .MuiInputLabel-root': { textTransform: 'uppercase', fontSize: '.9rem', letterSpacing: '-.25px', fontWeight: '500', marginTop: '-10px', marginLeft: '-10px' },
+                '& .MuiInputBase-input': { fontSize: styles_MuiInputBaseInput_fontSize, height: styles_MuiInputBaseInput_height, paddingLeft: '1px', paddingTop: '0', paddingBottom: 0, marginTop: '16px' },
+                '& .MuiFormLabel-root.Mui-focused': { color: '#c2410c'},
+                '& .MuiFilledInput-underline:after': { borderColor: '#c2410c' },
+                '& .MuiInputLabel-asterisk': { color: '#c2410c', fontSize: '.85rem', marginLeft: '4px', position: 'relative', top: '-2px'},
                 '& .MuiTextField-root': { width: '100%' },
+                '& .MuiInputBase-multiline': { paddingLeft: '1px', paddingTop: '18px', paddingBottom: '20px' },
             }}
             component="form"
             noValidate
@@ -148,7 +156,7 @@ const ContactForm = () => {
         >
             <motion.div
                 id="_loading-contact"
-                className="absolute z-0 top-0 left-0 w-full h-full bg-amber-600 opacity-0 flex justify-center items-center"
+                className="absolute z-0 top-0 left-0 w-full h-full bg-amber-500 opacity-0 flex justify-center items-center"
                 initial={"nok"}
                 animate={isLoading ? "ok" : "nok"}
                 variants={loadingVariants}
@@ -157,7 +165,7 @@ const ContactForm = () => {
             <fieldset>
                 <div className="pt-3 flex items-start">
                     {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">First Name</div>*/}
-                    <TextField required disabled={isLoading} id="standard-basic" label="First Name" variant="standard"
+                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-basic" label="First Name" variant="filled"
                                inputProps={{maxLength: 40}} {...register("firstName", {
                         required: "This is required.",
                         maxLength: {value: 40, message: "40 letters max."}
@@ -166,8 +174,8 @@ const ContactForm = () => {
                 <ErrorMessage errors={errors} name="firstName" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 flex items-start">
                     {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">Last Name</div>*/}
-                    <TextField required disabled={isLoading} id="standard-basic"
-                               label="Last Name" variant="standard"
+                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-basic"
+                               label="Last Name" variant="filled"
                                inputProps={{maxLength: 40}} {...register("lastName", {
                         required: "This is required.",
                         maxLength: {value: 40, message: "40 letters max."}
@@ -176,8 +184,8 @@ const ContactForm = () => {
                 <ErrorMessage errors={errors} name="lastName" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 flex items-start">
                     {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">Email</div>*/}
-                    <TextField required disabled={isLoading} id="standard-basic"
-                               label="Email" variant="standard"
+                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading} id="filled-basic"
+                               label="Email" variant="filled"
                                inputProps={{maxLength: 50}} {...register("email", {
                         required: "This is required.",
                         maxLength: {value: 50, message: "50 letters max."},
@@ -190,10 +198,10 @@ const ContactForm = () => {
                 <ErrorMessage errors={errors} name="email" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 relative flex items-start">
                     {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">Message</div>*/}
-                    <TextField required disabled={isLoading}
+                    <TextField required InputLabelProps={{ shrink: false }} disabled={isLoading}
                                id="standard-multiline-flexible" label="Message"
                                inputProps={{maxLength: 300, className: 'scrollbar-hide'}}
-                               multiline minRows={5} maxRows={5} variant="standard" {...register("message", {
+                               multiline minRows={3} maxRows={3} variant="filled" {...register("message", {
                         onChange: (e) => {
                             setText(e.target.value);
                         }, required: "This is required.", maxLength: 300
@@ -202,37 +210,45 @@ const ContactForm = () => {
                 </div>
                 <ErrorMessage errors={errors} name="message" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 flex items-center">
-                    <ContactButton id="contactButton" className="bg-zinc-900 disabled:bg-amber-800" disabled={buttonIsDisabled} type="submit" variant="contained">
-                        { isLoading && (
-                            <span className="_loader">
-                                <svg aria-hidden="true"
-                                     className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-zinc-400"
-                                     viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                        fill="currentColor"/>
-                                    <path
-                                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                        fill="currentFill"/>
-                                </svg>
-                            </span>
-                        )}
-                        { (!isLoading && !success && !error) && (
-                            <span className="_send"><SendIcon className="text-2xl text-amber-500" /></span>
-                        )}
+                    <div>
+                        <div className="w-auto border-[1px] border-zinc-950 rounded-full overflow-hidden">
+                            <ContactButton id="contactButton"
+                                           className="size-18 lg:size-20 3xl:size-28 bg-zinc-900 disabled:bg-amber-800 lg:m-3 flex justify-center items-center"
+                                           disabled={buttonIsDisabled} type="submit" variant="contained">
+
+                                {isLoading && (
+                                    <span className="_loader">
+                                        <svg aria-hidden="true"
+                                             className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-zinc-400"
+                                             viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                                fill="currentColor"/>
+                                            <path
+                                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                                fill="currentFill"/>
+                                        </svg>
+                                    </span>
+                                )}
+                                {(!isLoading && !success && !error) && (
+                                    <span className="_send text-amber-500">SEND</span>
+                                    /*<span className="_send"><SendIcon className="text-2xl text-amber-500"/></span>*/
+                                )}
+                                {success && (
+                                    <span className="text-[.7rem] text-amber-500"><CheckIcon/></span>
+                                )}
+                                {error && (
+                                    <span className="text-[.7rem] text-amber-500"><ErrorIcon/></span>
+                                )}
+                            </ContactButton>
+                        </div>
+                    </div>
+                    <div className="ml-5 w-auto lg:w-auto">
                         { success && (
-                            <span className="text-[.7rem] text-amber-500"><CheckIcon /></span>
+                            <span className="text-[.85rem] font-medium text-zinc-900 leading-[1.25rem]">{successMessage}</span>
                         )}
                         { error && (
-                            <span className="text-[.7rem] text-amber-500"><ErrorIcon /></span>
-                        )}
-                    </ContactButton>
-                    <div className="ml-5 w-1/2 lg:w-auto">
-                        { success && (
-                            <span className="text-[.85rem] font-bold text-zinc-900 leading-[1.25rem]">{successMessage}</span>
-                        )}
-                        { error && (
-                            <span className="text-[.85rem] font-bold text-[#c2410c] leading-[1.25rem]">{errorMessage}</span>
+                            <span className="text-[.85rem] font-medium text-[#c2410c] leading-[1.25rem]">{errorMessage}</span>
                         )}
                     </div>
                     {/*<input type="submit"/>*/}

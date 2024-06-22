@@ -135,7 +135,7 @@ const Title = ({myText}) => {
                 initial="hidden"
                 whileInView="visible"
                 variants={parent}
-                className="flex font-hkgrotesk font-bold uppercase"
+                className="flex font-grotesk font-bold uppercase"
             >
                 {titleH2.split("").map((item, index) => {
                     return (

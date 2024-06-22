@@ -1,13 +1,8 @@
 "use client"
 
-import MobhouseHeader from "@components/projects/mobhouseHeader";
-import MobhouseContent from "@components/projects/mobhouseContent";
-import SimpleSlider from "@components/projects/simpleSlider";
 import {motion, useAnimation, useInView, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import React, {useEffect, useRef, useState} from "react";
 import Image from "@node_modules/next/image";
-import logoSquareMHS from "@public/assets/images/logo_square_mhs-min.jpg";
-import logoSquareMHT from "@public/assets/images/logo_square_mht-min.jpg";
 
 import useDimension from "@hook/useDimension";
 import useCursorPosition from "@hook/useCursorPosition";
@@ -66,26 +61,72 @@ const Projects = () => {
         {
             id: 1,
             title: "MOBHOTEL",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            description: "In March 2017, MOB HOTEL opened its doors in the Puces district of Saint Ouen, then six month later in Lyon's Confluence district. In 2022, he will open MOB HOUSE, a 3-in-1 hotel project, combining bedroom, office and meeting room in a single space. At last, at Cannes, Carnot.",
+            details: [
+                "Frontend/Backend development of the institutional website via MAGENTO CMS.",
+                "Several graphic redesigns",
+                "Monitoring and various developments",
+                "Development Newsletters",
+            ],
             underContruction: false,
             link: "https://www.mobhotel.com/",
-            img: "/assets/images/Mockup_mhs_02-min.jpg"
+            logo: "/assets/images/logo_mht-min.jpg",
+            imgs: [
+                {
+                    mediaquery: "(min-width: 1024px)",
+                    src: "/assets/images/mockup_mobhotel_desktop-min.jpg"
+                },
+                {
+                    mediaquery: "(max-width: 1023px)",
+                    src: "/assets/images/mockup_mobhotel_mobile_02.jpg"
+                }
+            ]
         },
         {
             id: 2,
             title: "MOBHOUSE",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            description: "A unique ecological and social boutique hotel located in the Puces de Paris. MOB HOUSE distinguishes itself through its commitment to eco-designed rooms (materials and craftsmanship), a certified organic restaurant-bar, natural, organic and made-in-France cosmetics.",
+            details: [
+                "Frontend/Backend development of the institutional website via MAGENTO CMS.",
+                "Monitoring and various developments",
+                "Development Newsletters"
+            ],
             underContruction: false,
             link: "https://www.mobhouse.com/",
-            img: "/assets/images/Mockup_mhs_01-min.jpg"
+            logo: "/assets/images/logo_mhs-min.jpg",
+            imgs: [
+                {
+                    mediaquery: "(min-width: 1024px)",
+                    src: "/assets/images/mockup_mobhouse_desktop-min.jpg"
+                },
+                {
+                    mediaquery: "(max-width: 1023px)",
+                    src: "/assets/images/mockup_mobhouse_mobile-min.jpg"
+                }
+            ]
         },
         {
             id: 3,
             title: "Arr",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            description: "A personal Website about sound and music production, with some sound libraries for sale, blog articles, video tutorials...",
+            details: [
+                "Next JS / React development",
+                "WooCommerce / Wordpress as a Headless CMS",
+                "Tailwind CSS / Framer Motion"
+            ],
             underContruction: true,
-            link: "https://www.mobhouse.com/",
-            img: "/assets/images/logo_square_mhs-min.jpg"
+            link: "#",
+            logo: "/assets/images/logo_works_3-min.jpg",
+            imgs: [
+                {
+                    mediaquery: "(min-width: 1024px)",
+                    src: "/assets/images/mockup_arr_desktop-min.jpg"
+                },
+                {
+                    mediaquery: "(max-width: 1023px)",
+                    src: "/assets/images/mockup_arr_desktop-min.jpg"
+                }
+            ]
         },
 
     ];

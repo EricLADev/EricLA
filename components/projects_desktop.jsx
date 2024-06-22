@@ -1,13 +1,9 @@
 "use client"
 
-import MobhouseHeader from "@components/projects/mobhouseHeader";
-import MobhouseContent from "@components/projects/mobhouseContent";
 import SimpleSlider from "@components/projects/simpleSlider";
 import {motion, useAnimation, useInView, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import React, {useEffect, useRef} from "react";
 import Image from "@node_modules/next/image";
-import logoSquareMHS from "@public/assets/images/logo_square_mhs-min.jpg";
-import logoSquareMHT from "@public/assets/images/logo_square_mht-min.jpg";
 import cog01 from "@public/assets/backgrounds/cog01.svg";
 import cog02 from "@public/assets/backgrounds/cog02.svg";
 import cog03 from "@public/assets/backgrounds/cog03.svg";

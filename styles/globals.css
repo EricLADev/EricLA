@@ -1,14 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.cdnfonts.com/css/now");
-@import url("https://fonts.cdnfonts.com/css/hk-groteks");
-@import url("https://fonts.cdnfonts.com/css/euclid-circular-a");
-@import url("https://db.onlinewebfonts.com/c/01173b246d9d9ea808ea75a26b3b61bb?family=CircularSpotifyTxT-Black");
 
-@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Reddit+Mono:wght@200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://fonts.cdnfonts.com/css/hk-groteks");
+
+@font-face {
+    font-family: 'Big John';
+    src: url('../public/assets/fonts/BIG JOHN.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'QanelasSoftDEMO';
+    src: url('../public/assets/fonts/QanelasSoftDEMO-ExtraBold.otf');
+    font-weight: 900;
+    font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -180,13 +194,14 @@ section ._sound-container-05 canvas { position: absolute; left: 50%; transform: 
 section ._sound-container-06 { @apply bg-rose-950 }
 /*._section canvas { @apply block absolute top-0 left-0 z-0 !w-[100%] !h-[100%] }*/
 section canvas:nth-child(2) { @apply hidden }
+
 h2 {
     font-size: clamp(2.75rem, 10vw, 9rem);
     line-height: clamp(2.75rem, 10vw, 9rem);
-    @apply font-hkgrotesk font-[300] }
+    @apply font-urbanist font-[400] }
 
 h3 {
-    @apply font-hkgrotesk font-[400] }
+    @apply font-urbanist font-[400] }
 
 /*
     PROJECTS
@@ -194,7 +209,6 @@ h3 {
 
 .parallax {
     overflow: hidden;
-    letter-spacing: -2px;
     line-height: 0.8;
     margin: 0;
     white-space: nowrap;
@@ -203,15 +217,9 @@ h3 {
 }
 
 .parallax .scroller {
-    @apply font-circular;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 20vh;
-    display: flex;
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: nowrap;
-    letter-spacing: -.75rem;
+    @apply flex;
+    /*white-space: nowrap;
+    flex-wrap: nowrap;*/
 }
 
 .parallax span {

@@ -9,6 +9,8 @@ import EastIcon from '@mui/icons-material/East';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import TransitEnterexitIcon from '@mui/icons-material/TransitEnterexit';
 import SwitchLeftIcon from '@mui/icons-material/SwitchLeft';
+import NavigationIcon from '@mui/icons-material/Navigation';
+
 import {useLenis} from "@node_modules/@studio-freight/react-lenis";
 
 const Arrow = ({ isScrolling }) => {
@@ -35,7 +37,7 @@ const Arrow = ({ isScrolling }) => {
         <motion.div id="_arrow"
             onClick={scrollTop}
             className="
-                fixed z-50 flex justify-center items-center bg-zinc-950 rounded-full mr-2 mb-2
+                fixed z-50 flex justify-center items-center bg-zinc-950 rounded-full
                 bottom-[var(--main-padding)] right-[var(--main-padding)]
 
                 sm:bottom-[var(--main-padding-sm)] sm:right-[var(--main-padding-sm)]
@@ -44,7 +46,8 @@ const Arrow = ({ isScrolling }) => {
 
                 w-[var(--nav-burger-container-width)] h-[var(--nav-burger-container-height)]
                 sm:w-[var(--nav-burger-container-width-sm)] sm:h-[var(--nav-burger-container-height-sm)]
-                2xl:w-[var(--nav-burger-container-width-2xl)] 2xl:h-[var(--nav-burger-container-height-2xl)]"
+                2xl:w-[var(--nav-burger-container-width-2xl)] 2xl:h-[var(--nav-burger-container-height-2xl)]
+                "
             initial={"backToTop"}
             animate={isScrolling ? "isScrolling" : "backToTop"}
             variants={arrowVariants}
@@ -57,7 +60,7 @@ const Arrow = ({ isScrolling }) => {
                 border-solid border-zinc-100 border-r-[2px] border-b-[2px]
                 rotate-45"/>*/}
             {/*<EastIcon className="rotate-90 text-[1.5rem] text-zind-100" sx={{ color: '#f5f5f4', fontSize: '1.5rem', fontWeight: '100' }} />*/}
-            <ArrowDownwardIcon className="text-[1.5rem] sm:text-[2.75rem] text-zinc-100 font-light" />
+            <NavigationIcon className="text-[1.5rem] sm:text-[1.75rem] text-zinc-100 font-light rotate-180" />
         </motion.div>
     );
 };

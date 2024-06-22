@@ -11,27 +11,34 @@ const Title = ({myText}) => {
 
     return (
         <div ref={containerTitle}
-             className="relative w-full lg:w-screen h-screen flex flex-col overflow-hidden bg-amber-200">
-            <div className="relative -top-[25%] -left-[12.5%] -rotate-12 w-[125%] text-amber-400">
-                <div className="text-amber-300"><ParallaxText baseVelocity={.40}> Derniers Projets </ParallaxText></div>
-                <div className="text-amber-400"><ParallaxText baseVelocity={-.45}> Last Projects </ParallaxText></div>
-                <div className="text-amber-400"><ParallaxText baseVelocity={.55}> Derniers Projets </ParallaxText></div>
-                <div className="text-amber-300"><ParallaxText baseVelocity={.20}> Last Projects </ParallaxText></div>
-                <div className="text-amber-300"><ParallaxText baseVelocity={.45}> Derniers Projets </ParallaxText></div>
-                <div className="text-amber-400"><ParallaxText baseVelocity={-.40}> Last Projects </ParallaxText></div>
-                <div className="text-amber-300"><ParallaxText baseVelocity={.60}> Derniers Projets </ParallaxText></div>
-                <div className="text-amber-400"><ParallaxText baseVelocity={-.45}> Last Projects </ParallaxText></div>
-                <div className="text-amber-300"><ParallaxText baseVelocity={.40}> Derniers Projets </ParallaxText></div>
-                <div className="text-amber-400"><ParallaxText baseVelocity={-.55}> Last Projects </ParallaxText></div>
+             className="relative w-full lg:w-screen h-screen flex flex-col overflow-hidden bg-sky-200 opacity-100">
+            <div className="
+                relative -top-[25%] -left-[12.5%] -rotate-12 w-[125%]
+                uppercase font-urbanist text-sky-100 text-[15vh] font-[900]
+                ">
+                <div className=""><ParallaxText baseVelocity={.40}>DerniersProjets#</ParallaxText></div>
+                <div className="text-[10vh] font-[500]"><ParallaxText baseVelocity={-.45}>LastProjects#</ParallaxText></div>
+                <div className="text-[10vh]"><ParallaxText baseVelocity={.35}>DerniersProjets#</ParallaxText></div>
+                <div className="font-[500]"><ParallaxText baseVelocity={.20}>LastProjects#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={.45}>DerniersProjets#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={-.40}>LastProjects#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={.60}>DerniersProjets#</ParallaxText></div>
+                <div className="font-[300] "><ParallaxText baseVelocity={-.95}>LastProjects#</ParallaxText></div>
+                <div className="text-[22vh] font-[300]"><ParallaxText baseVelocity={.40}>DerniersProjets#</ParallaxText></div>
+                <div className="text-[27vh]"><ParallaxText baseVelocity={.65}>LastProjects#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={.40}>DerniersProjets#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={-.45}>LastProjects#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={.55}>DerniersProjets#</ParallaxText></div>
+                <div className=""><ParallaxText baseVelocity={.20}>LastProjects#</ParallaxText></div>
             </div>
         </div>
 
     )
 }
 
-function ParallaxText({ children, baseVelocity = 100 }) {
+function ParallaxText({children, baseVelocity = 100}) {
     const baseX = useMotionValue(0);
-    const { scrollY } = useScroll();
+    const {scrollY} = useScroll();
     const scrollVelocity = useVelocity(scrollY);
     const smoothVelocity = useSpring(scrollVelocity, {
         damping: 50,
@@ -57,9 +64,9 @@ function ParallaxText({ children, baseVelocity = 100 }) {
          * switch scrolling directions.
          */
         if (velocityFactor.get() < 0) {
-            directionFactor.current = -.65;
+            directionFactor.current = -.75;
         } else if (velocityFactor.get() > 0) {
-            directionFactor.current = .65;
+            directionFactor.current = .75;
         }
 
         moveBy += directionFactor.current * moveBy * velocityFactor.get();
@@ -77,10 +84,14 @@ function ParallaxText({ children, baseVelocity = 100 }) {
     return (
         <div className="parallax">
             <motion.div className="scroller" style={{x}}>
-                <span>{children} </span>
-                <span>{children} </span>
-                <span>{children} </span>
-                <span>{children} </span>
+                <span>{children}</span>
+                <span>{children}</span>
+                <span>{children}</span>
+                <span>{children}</span>
+                <span>{children}</span>
+                <span>{children}</span>
+                <span>{children}</span>
+                <span>{children}</span>
             </motion.div>
         </div>
     );

@@ -2,11 +2,6 @@
 
 import React, {useRef, useMemo, memo} from 'react';
 import Image from 'next/image';
-import logoSquareMHS from "@public/assets/images/logo_square_mhs-min.jpg";
-import mobhouseSlide01 from "@public/assets/images/mobhouse-slide-01-min.jpg";
-import mobhouseSlide03 from "@public/assets/images/mobhouse-slide-03-min.jpg";
-import mobhouseSlide08 from "@public/assets/images/mobhouse-slide-08-min.jpg";
-import mobhouseSlide09 from "@public/assets/images/mobhouse-slide-09-min.jpg";
 import HiThere from "@components/header/hithere";
 import { Canvas } from '@react-three/fiber'
 import {

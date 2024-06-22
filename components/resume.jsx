@@ -7,15 +7,15 @@ import { useTransform, useScroll } from "framer-motion";
 import React, {createElement, useEffect, useRef} from "react";
 import {useAnimation, useInView, useMotionValueEvent} from "@node_modules/framer-motion";
 import resumeBkg from "@public/assets/backgrounds/timeline03.svg";
-import arrow01 from "@public/assets/backgrounds/arrow01.svg";
-import arrow02 from "@public/assets/backgrounds/arrow02.svg";
-import arrow03 from "@public/assets/backgrounds/arrow03.svg";
-import arrow04 from "@public/assets/backgrounds/arrow04.svg";
-import arrow05 from "@public/assets/backgrounds/arrow05.svg";
-import arrow06 from "@public/assets/backgrounds/arrow06.svg";
-/*import arrow07 from "@public/assets/backgrounds/arrow07.svg";*/
-import arrow08 from "@public/assets/backgrounds/arrow08.svg";
-import arrow09 from "@public/assets/backgrounds/arrow09.svg";
+
+import resume_arrow01 from "@public/assets/icons/resume_arrow01.svg";
+import resume_arrow02 from "@public/assets/icons/resume_arrow02.svg";
+import resume_arrow03 from "@public/assets/icons/resume_arrow03.svg";
+import resume_arrow04 from "@public/assets/icons/resume_arrow04.svg";
+import resume_arrow05 from "@public/assets/icons/resume_arrow05.svg";
+import resume_arrow07 from "@public/assets/icons/resume_arrow07.svg";
+import resume_arrow08 from "@public/assets/icons/resume_arrow08.svg";
+
 import Image from "@node_modules/next/image";
 import {motion, Variants, cubicBezier} from "framer-motion";
 import Personal from "@components/resume/personal";
@@ -24,6 +24,7 @@ import Skills from "@components/resume/skills";
 import Education from "@components/resume/education";
 import Languages from "@components/resume/languages";
 import Hobbies from "@components/resume/hobbies";
+import circular_helloworld from "@public/assets/icons/circular_helloworld3.svg";
 
 const Resume = () => {
 
@@ -35,9 +36,9 @@ const Resume = () => {
     });
 
     const y01 = useTransform(scrollYProgress, [0,1], [0,360]);
-    const y02 = useTransform(scrollYProgress, [0,1], [0,-10]);
+    const y02 = useTransform(scrollYProgress, [0,1], [0,300]);
     const y03 = useTransform(scrollYProgress, [0,1], [0,180]);
-    const y04 = useTransform(scrollYProgress, [0,1], [0,-220]);
+    const y04 = useTransform(scrollYProgress, [0,1], [0,-20]);
     const y05 = useTransform(scrollYProgress, [0,1], [0,-50]);
     const y06 = useTransform(scrollYProgress, [0,1], [0,-300]);
 
@@ -45,7 +46,7 @@ const Resume = () => {
     const r02 = useTransform(scrollYProgress, [0,1], [0,-40]);
     const r03 = useTransform(scrollYProgress, [0,1], [0,20]);
     const r04 = useTransform(scrollYProgress, [0,1], [0,-50]);
-    const r05 = useTransform(scrollYProgress, [0,1], [0,10]);
+    const r05 = useTransform(scrollYProgress, [0,1], [30,-50]);
     const r06 = useTransform(scrollYProgress, [0,1], [0,-60]);
 
     /*useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -55,82 +56,70 @@ const Resume = () => {
     return (
         <section ref={container} id="_resume" className="relative z-20 w-full min-h-[100dvh] h-auto lg:py-52">
 
-            <motion.div
-                className="absolute z-0 top-[-25%] left-[-10%] w-[120%] min-h-[150%] flex content-center justify-center items-center">
+            {/*<motion.div className="absolute z-0 top-[-25%] left-[-10%] w-[120%] min-h-[150%] flex content-center justify-center items-center">*/}
+            <motion.div className="absolute z-0 top-[-25%] left-[-5%] w-[110%] min-h-[150%] flex content-center justify-center items-center">
 
-                <motion.div style={{y: y01, rotateZ: r01}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#0A0903] overflow-hidden">
+                {/*<motion.div style={{y: y01, rotateZ: r01}}
+                            className="relative w-[22vw] h-[22vw] z-100 rounded-full bg-zinc-900 overflow-hidden">
                     <Image
                         fill
                         className="opacity-80"
                         style={{objectFit: "cover"}}
                         //style={{width: '100%', height: 'auto'}}
-                        src={arrow05}
+                        src={resume_arrow03}
                         alt="Resume"
                         priority
                     />
-                </motion.div>
+                </motion.div>*/}
 
                 <motion.div style={{y: y02, rotateZ: r02}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#FF7900]">
+                            className="relative w-[22vw] h-[22vw] z-100 rounded-full bg-orange-500">
                     <Image
                         fill
-                        className="opacity-50"
                         style={{objectFit: "cover"}}
                         //style={{width: '100%', height: 'auto'}}
-                        src="/assets/backgrounds/arrow07.svg"
+                        src={resume_arrow05}
                         alt="Resume"
                         priority
                     />
                 </motion.div>
 
                 <motion.div style={{y: y03, rotateZ: r03}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#6497b1] overflow-hidden">
+                            className="relative w-[22vw] h-[22vw] z-100 rounded-full bg-zinc-800 flex justify-center items-center">
                     <Image
-                        fill
-                        className="opacity-50"
-                        style={{objectFit: "cover"}}
-                        //style={{width: '100%', height: 'auto'}}
-                        src={arrow08}
+                        style={{width: '65%', height: '65%'}}
+                        src={resume_arrow04}
                         alt="Resume"
                         priority
                     />
                 </motion.div>
 
                 <motion.div style={{y: y04, rotateZ: r04}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#FFF4D5]">
+                            className="relative w-[22vw] h-[22vw] z-100 rounded-full bg-amber-200 flex justify-center items-center">
                     <Image
-                        fill
-                        className="opacity-50"
-                        style={{objectFit: "cover"}}
-                        //style={{width: '100%', height: 'auto'}}
-                        src={arrow05}
+                        style={{width: '65%', height: '65%'}}
+                        src={resume_arrow04}
                         alt="Resume"
                         priority
                     />
                 </motion.div>
 
                 <motion.div style={{y: y05, rotateZ: r05}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#FFC929]">
+                            className="relative w-[22vw] h-[22vw] z-100 rounded-full bg-amber-300 flex justify-center items-center overflow-hidden">
                     <Image
-                        fill
-                        className="opacity-80"
-                        style={{objectFit: "cover"}}
-                        //style={{width: '100%', height: 'auto'}}
-                        src={arrow08}
+                        style={{width: '75%', height: '75%', marginRight: '-5rem'}}
+                        src={resume_arrow02}
                         alt="Resume"
                         priority
                     />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -ml-10 size-[3.5vw] bg-amber-200 rounded-full"></div>
                 </motion.div>
 
                 <motion.div style={{y: y06, rotateZ: r06}}
-                            className="relative w-[20vw] h-[20vw] z-100 rounded-full bg-[#03396c]">
+                            className="relative w-[22vw] h-[22vw] z-100 rounded-full flex justify-center items-center bg-sky-300">
                     <Image
-                        fill
-                        className="opacity-50"
-                        style={{objectFit: "cover"}}
-                        //style={{width: '100%', height: 'auto'}}
-                        src="/assets/backgrounds/arrow07.svg"
+                        style={{width: '75%', height: '75%'}}
+                        src={resume_arrow08}
                         alt="Resume"
                         priority
                     />
@@ -139,20 +128,22 @@ const Resume = () => {
             </motion.div>
 
             <Hirondelles/>
-            <div className="_resume relative z-10 bg-[#fff] bg-opacity-95 lg:bg-opacity-[.98] max-w-[980px] p-5 text-[.8rem] leading-[1.25rem] m-[var(--main-padding)] sm:p-14 lg:-mt-[10px] lg:-mb-[10px] lg:m-auto">
+            <div className="_resume relative z-10 bg-[#fff] bg-opacity-95 lg:bg-opacity-[.95] max-w-[980px] p-5 text-[.8rem] leading-[1.25rem] m-[var(--main-padding)] sm:p-14 lg:-mt-[10px] lg:-mb-[10px] lg:m-auto">
                 <ResumeHeader/>
                 <div className="w-full flex flex-wrap justify-between lg:flex-row lg:pb-7">
                     {Items.map((item, index) =>
                         <div key={`key_${index}`} id={item.id} className="pb-8 w-full lg:w-[48%]">
-                            <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
+                            <h3 className="text-[1.2rem] font-medium border-b-[1px] border-b-zinc-900 border-dashed pb-1 mb-5 overflow-hidden">
                                 <span>{item.title}</span>
                             </h3>
                             {item.content}
                         </div>
                     )}
                 </div>
+            </div>
+            <Hirondelles/>
 
-                    {/*<div className="w-full flex flex-col justify-between lg:flex-row lg:pb-7">
+            {/*<div className="w-full flex flex-col justify-between lg:flex-row lg:pb-7">
                     <div id="_personalStatement" className="pb-8 w-full lg:w-[48%]">
                         <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
                             <span>Personal Statement</span>
@@ -194,8 +185,6 @@ const Resume = () => {
                         <Hobbies/>
                     </div>
                 </div>*/}
-            </div>
-            <Hirondelles/>
 
         </section>
     );

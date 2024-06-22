@@ -59,7 +59,7 @@ const Contact = () => {
                     className="bg-amber-500 w-full h-auto lg:h-full p-3">
                     <div className="w-full max-w-[1900px] py-20 mx-auto h-auto lg:h-full lg:flex lg:justify-center lg:items-center">
 
-                        <div className="w-full lg:w-1/2 max-w-[850px] text-left lg:text-right font-hkgrotesk pr-4 flex flex-col justify-center">
+                        <div className="w-full lg:w-1/2 max-w-[850px] text-left lg:text-right font-grotesk pr-4 flex flex-col justify-center">
                             <p className="text-[6rem] leading-[4.75rem] lg:text-[8rem] lg:leading-[6rem] xl:text-[10rem] xl:leading-[7.5rem] 2xl:text-[12rem] 2xl:leading-[9rem] 3xl:text-[15rem] 3xl:leading-[11rem] uppercase font-bold">Get in</p>
                             <p className="text-[6rem] leading-[4.75rem] lg:text-[8rem] lg:leading-[6rem] xl:text-[10rem] xl:leading-[7.5rem] 2xl:text-[12rem] 2xl:leading-[9rem] 3xl:text-[15rem] 3xl:leading-[11rem] uppercase font-bold">touch</p>
                             <p className="mt-2 text-[3.5rem] leading-[3rem] lg:text-[5rem] lg:leading-[4rem] xl:text-[6rem] xl:leading-[5rem] uppercase font-light flex justify-start lg:justify-end">

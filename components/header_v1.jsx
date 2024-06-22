@@ -39,7 +39,7 @@ import {motion} from "@node_modules/framer-motion";
 const Header = () => {
 
     return (
-        <section id="_header" className="_section w-full min-h-[100dvh] h-full flex relative font-hkgrotesk font-[700] capitalize">
+        <section id="_header" className="_section w-full min-h-[100dvh] h-full flex relative font-grotesk font-[700] capitalize">
 
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-center">
                 <span className="capitalize text-zinc-950 text-[10rem] mr-5">I'm</span>

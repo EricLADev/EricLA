@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Underscore from "@components/nav/items/underscore/underscore";
 import {useLenis} from "@studio-freight/react-lenis";
 
-const Item = ({ itemTitle, itemLink }) => {
+const Item = ({ itemIcon, itemTitle, itemLink }) => {
 
     /*const [isHover, setIsHover] = useState(false);
     const handleHover = (e) => {
@@ -36,7 +36,12 @@ const Item = ({ itemTitle, itemLink }) => {
     return (
         <>
             <motion.a
-                className="block font-light uppercase cursor-pointer text-[3rem] leading-[3rem] h-[54px] md:text-[3.5rem] md:leading-[3.3rem] md:h-[58px]"
+                className="
+                block font-light uppercase cursor-pointer
+                text-[3rem] leading-[3rem] h-[45px]
+                md:text-[2.5rem] md:leading-[2.4rem] md:h-[42px]
+                2xl:text-[3rem] 2xl:leading-[2.9rem] 2xl:h-[51px]
+                "
                 //href={itemLink}
                 data-anchor={itemLink}
                 onClick={goToAnchor}
@@ -54,7 +59,7 @@ const Item = ({ itemTitle, itemLink }) => {
                     transition: {delayChildren: 0.1, duration: .1}
                 }}
             >
-                <span><Underscore/>{itemTitle}</span>
+                <span><Underscore itemIcon={itemIcon} />{itemTitle}</span>
             </motion.a>
         </>
     );
