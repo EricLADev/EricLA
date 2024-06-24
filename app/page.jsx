@@ -10,27 +10,30 @@ import Projects from "@components/projects";
 import SmoothScrolling from "@components/smoothScrolling";
 import Loading from "@app/loading";
 import {Suspense} from "react";
+import Comingsoon from "@components/comingsoon";
 
 //import SmoothScroll from "@components/SmoothScroll";
 
 const Home = () => {
 
     return (
-        <Suspense fallback={<Loading />}>
+        /*<Suspense fallback={<Loading />}>*/
             <SmoothScrolling>
                 <Nav />
                 {/*<SmoothScroll>*/}
                     <main className="app">
+                        {/*<Comingsoon />*/}
                         <Header />
                         <Projects />
                         <Resume />
+
                         {/*<Sounds />*/}
                         <Contact />
                     </main>
                 {/*</SmoothScroll>*/}
                 <Footer />
             </SmoothScrolling>
-        </Suspense>
+        /*</Suspense>*/
     );
 };
 

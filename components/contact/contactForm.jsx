@@ -51,7 +51,7 @@ const ContactForm = () => {
         try {
             setIsLoading(true);
             setButtonIsDisabled(true);
-            await sleep(55000);
+            await sleep(2000);
             await sendContactForm(data);
             setSuccess(true);
             setText("");
