@@ -4,18 +4,19 @@ import Item from "@components/nav/items/item";
 import WavingHandIcon from '@mui/icons-material/WavingHand';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import TuneIcon from '@mui/icons-material/Tune';
+import ConstructionIcon from '@mui/icons-material/Construction';
+//import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+//import TuneIcon from '@mui/icons-material/Tune';
 import EmailIcon from '@mui/icons-material/Email';
 
 const Items = () => {
 
     const Items = [
-        {id: 1, title: 'Welcome', link: '#_header', icon : <WavingHandIcon className="text-[1.8rem] 2xl:text-[2.25rem]" />},
-        {id: 2, title: 'Projects', link: '#_projects', icon : <HomeRepairServiceIcon className="text-[2rem] 2xl:text-[2.4rem]" />},
-        {id: 3, title: 'Resume', link: '#_resume', icon : <ReceiptLongIcon className="text-[2rem] 2xl:text-[2.4rem]" />},
-        {id: 4, title: 'Sounds', link: '#_sounds', icon : <TuneIcon className="text-[2rem] 2xl:text-[2.4rem]" />},
-        {id: 5, title: 'Contact', link: '#_contact', icon : <EmailIcon className="text-[2rem] 2xl:text-[2.4rem]" />},
+        {id: 1, title: 'Welcome', link: '#_header', icon : <WavingHandIcon sx={{fontSize: { sm: 16, md: 25, xl: 30 } }} />},
+        {id: 2, title: 'Projects', link: '#_projects', icon : <HomeRepairServiceIcon sx={{fontSize: { sm: 16, md: 25, xl: 30 } }} />},
+        {id: 3, title: 'Sounds', link: '#_sounds', icon : <ConstructionIcon sx={{fontSize: { sm: 16, md: 25, xl: 30 } }} />},
+        {id: 4, title: 'Resume', link: '#_resume', icon : <ReceiptLongIcon sx={{fontSize: { sm: 16, md: 25, xl: 30 } }} />},
+        {id: 5, title: 'Contact', link: '#_contact', icon : <EmailIcon sx={{fontSize: { sm: 16, md: 25, xl: 30 } }} />},
     ];
 
     const itemsVariants = {

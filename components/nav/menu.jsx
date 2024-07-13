@@ -1,21 +1,20 @@
 
 import { motion } from "framer-motion";
 import Items from "@components/nav/items";
-import useDimension from "@hook/useDimension";
+//import useDimension from "@hook/useDimension";
 import Image from "@node_modules/next/image";
-import cursor from "@public/assets/icons/cursor.svg";
 import subway_arrow from "@public/assets/icons/arrow-subway_01.svg";
 
 const Menu = ({ isOpen }) => {
 
-    const { width } = useDimension();
+    /*const { width } = useDimension();
     let xnav = 'var(--x-nav-motionValue)';
     if (width>=640 && width<1024)
         xnav = 'var(--x-nav-motionValue-sm)';
     else if (width>=1024 && width<1536)
         xnav = 'var(--x-nav-motionValue-lg)';
     else if (width>=1536)
-        xnav = 'var(--x-nav-motionValue-2xl)';
+        xnav = 'var(--x-nav-motionValue-2xl)';*/
 
     const bgMenuVariants = {
         closed: {
@@ -45,9 +44,9 @@ const Menu = ({ isOpen }) => {
         <motion.ul
             id="_bg_menu"
             className="fixed z-40 right-0 flex flex-col justify-center items-end bg-zinc-950 border-l-[.75rem] border-r-[1rem] border-zinc-950 overflow-hidden rounded-tl-[175%] rounded-bl-[175%]
-            -top-[20%]
-            h-[140%]
-            w-[95%] md:w-[300px] 2xl:w-[400px]"
+            -top-[20svh]
+            h-[140svh]
+            w-[85%] md:w-[300px] 2xl:w-[400px]"
             initial={"closed"}
             animate={isOpen ? "open" : "closed"}
             variants={bgMenuVariants}

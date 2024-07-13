@@ -7,7 +7,7 @@ const Burger = ({ onToggleClick }) => {
             id="_burger_container"
             className="
             fixed z-50 bg-zinc-950 bg-opacity-100 cursor-pointer rounded-full
-
+            mr-2 mt-2 lg:mr-0 lg:mt-0
             top-[var(--main-padding)] right-[var(--main-padding)]
             sm:top-[var(--main-padding-sm)] sm:right-[var(--main-padding-sm)]
             lg:top-[var(--main-padding-lg)] lg:right-[var(--main-padding-lg)]

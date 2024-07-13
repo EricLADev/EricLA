@@ -46,9 +46,6 @@ function Cyl1(props) {
     texture.rotation = Math.PI / 2;
     texture.center = new THREE.Vector2(0.5, 0.5); // center of texture.
 
-
-
-    //const dayTexture = useTexture('assets/texture/getintouch_texture_01.png');
     const viewport = useThree((state) => state.viewport)
     //useFrame((state, delta) => (ref1.current.rotation.x = ref1.current.rotation.y += delta / 2))
     useFrame((state, delta) => (ref1.current.rotation.y -= delta / 2))
@@ -79,8 +76,6 @@ function Cyl2(props) {
     texture.rotation = Math.PI / 2;
     texture.center = new THREE.Vector2(0.5, 0.5); // center of texture.
 
-
-    //const dayTexture = useTexture('assets/texture/getintouch_texture_01.png');
     const viewport = useThree((state) => state.viewport)
     //useFrame((state, delta) => (ref1.current.rotation.x = ref1.current.rotation.y += delta / 2))
     useFrame((state, delta) => (ref1.current.rotation.y += delta / 2))
@@ -110,8 +105,6 @@ function Cyl3(props) {
     texture.rotation = Math.PI / 2;
     texture.center = new THREE.Vector2(0.5, 0.5); // center of texture.
 
-
-    //const dayTexture = useTexture('assets/texture/getintouch_texture_01.png');
     const viewport = useThree((state) => state.viewport)
     //useFrame((state, delta) => (ref1.current.rotation.x = ref1.current.rotation.y += delta / 2))
     useFrame((state, delta) => (ref1.current.rotation.y += delta / 2))

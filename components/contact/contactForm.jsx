@@ -211,9 +211,9 @@ const ContactForm = () => {
                 <ErrorMessage errors={errors} name="message" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 flex items-center">
                     <div>
-                        <div className="w-auto border-[1px] border-zinc-950 rounded-full overflow-hidden">
+                        {/*<div className="w-auto border-[1px] border-zinc-950 rounded-full overflow-hidden">*/}
                             <ContactButton id="contactButton"
-                                           className="size-18 lg:size-20 3xl:size-28 bg-zinc-900 disabled:bg-amber-800 lg:m-3 flex justify-center items-center"
+                                           className="size-18 lg:size-20 3xl:size-32 bg-zinc-900 disabled:bg-amber-800 flex justify-center items-center"
                                            disabled={buttonIsDisabled} type="submit" variant="contained">
 
                                 {isLoading && (
@@ -241,7 +241,7 @@ const ContactForm = () => {
                                     <span className="text-[.7rem] text-amber-500"><ErrorIcon/></span>
                                 )}
                             </ContactButton>
-                        </div>
+                        {/*</div>*/}
                     </div>
                     <div className="ml-5 w-auto lg:w-auto">
                         { success && (

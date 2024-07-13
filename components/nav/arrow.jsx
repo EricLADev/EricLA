@@ -19,6 +19,8 @@ const Arrow = ({ isScrolling }) => {
 
     const scrollTop = (e) => {
         (isScrolling) ? lenis.scrollTo(0) : lenis.scrollTo("#_projects");
+        if (document.body.classList.contains("navOpen"))
+            document.getElementById("_burger_container").click();
         //(isScrolling) ? lenis.scrollTo(0) : e.preventDefault();
         //document.body.scrollTop = 0;
         //document.documentElement.scrollTop = 0;
@@ -39,6 +41,7 @@ const Arrow = ({ isScrolling }) => {
             className="
                 fixed z-50 flex justify-center items-center bg-zinc-950 rounded-full
                 bottom-[var(--main-padding)] right-[var(--main-padding)]
+                mr-2 mb-2 lg:mr-0 lg:mb-0
 
                 sm:bottom-[var(--main-padding-sm)] sm:right-[var(--main-padding-sm)]
                 lg:bottom-[var(--main-padding-lg)] lg:right-[var(--main-padding-lg)]

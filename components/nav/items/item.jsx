@@ -2,25 +2,9 @@
 import { motion } from "framer-motion";
 import Underscore from "@components/nav/items/underscore/underscore";
 import {useLenis} from "@studio-freight/react-lenis";
+import useDimension from "@hook/useDimension";
 
 const Item = ({ itemIcon, itemTitle, itemLink }) => {
-
-    /*const [isHover, setIsHover] = useState(false);
-    const handleHover = (e) => {
-        e.preventDefault();
-        setIsHover(!isHover);
-    };*/
-
-
-    /*const linkVariants = {
-        out: {
-            x: 0,
-        },
-        enter: {
-            x: 10,
-            transition: { type: "spring", delayChildren: 0.2, duration: .15 }
-        }
-    };*/
 
     const lenis = useLenis();
 
@@ -33,6 +17,21 @@ const Item = ({ itemIcon, itemTitle, itemLink }) => {
         );*/
     }
 
+    const { width } = useDimension();
+
+    let linkVariants = {};
+    const isMobile = width < 1024;
+    if (!isMobile) {
+        linkVariants = {
+            hover: {
+                paddingRight: 10,
+                color: '#1c1917',
+                backgroundColor: '#f5f5f4',
+                transition: {delayChildren: 0.1, duration: .1}
+            }
+        };
+    }
+
     return (
         <>
             <motion.a
@@ -42,24 +41,17 @@ const Item = ({ itemIcon, itemTitle, itemLink }) => {
                 md:text-[2.5rem] md:leading-[2.4rem] md:h-[42px]
                 2xl:text-[3rem] 2xl:leading-[2.9rem] 2xl:h-[51px]
                 "
-                //href={itemLink}
                 data-anchor={itemLink}
                 onClick={goToAnchor}
-                //className={isHover ? "hover" : ""}
-                //onMouseEnter={handleHover}
-                //onMouseOut={handleHover}
-                //initial={false}
-                //animate={isHover ? "enter" : "out"}
-                whileHover={{
-                    //x: -5,
-                    //scale: .97,
-                    paddingRight: 10,
-                    color: '#1c1917',
-                    backgroundColor: '#f5f5f4',
-                    transition: {delayChildren: 0.1, duration: .1}
-                }}
+                whileHover="hover"
+                variants={linkVariants}
             >
-                <span><Underscore itemIcon={itemIcon} />{itemTitle}</span>
+                <span>
+                    {!isMobile && (
+                        <Underscore itemIcon={itemIcon} />
+                    )}
+                    {itemTitle}
+                </span>
             </motion.a>
         </>
     );

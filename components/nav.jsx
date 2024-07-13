@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import Logo from "@components/nav/logo";
 import Menu from "@components/nav/menu";
 import Burger from "@components/nav/burger";

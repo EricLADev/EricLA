@@ -1,8 +1,4 @@
 import Image from 'next/image';
-/*import logoW from "@public/assets/logos/logo_white.svg";
-import logoB from "@public/assets/logos/logo_black.svg";*/
-import logoW from "@public/assets/logos/e-la_logo_w.svg";
-import logoB from "@public/assets/logos/e-la_logo_b.svg";
 import logo_eric from "@public/assets/logos/eric.l.a_03.svg";
 
 const logoSvg = () => (

@@ -1,16 +1,8 @@
 "use client"
 
-import Sound from "@components/sounds/sound";
-import Sound01 from "@components/sounds/sound01";
-import Sound02 from "@components/sounds/sound02";
-import Sound03 from "@components/sounds/sound03";
-import Sound04 from "@components/sounds/sound04";
-import Sound05 from "@components/sounds/sound05";
-import {OrbitControls} from "@node_modules/@react-three/drei";
 import {Canvas, useFrame, useLoader, useThree} from "@node_modules/@react-three/fiber";
 import React, {Suspense, useEffect, useRef, useState} from "react";
 import * as THREE from "three";
-import {Box} from "@react-three/drei";
 import { suspend } from 'suspend-react';
 
 const Sounds = () => {
@@ -45,10 +37,10 @@ const Sounds = () => {
                         <spotLight position={[-4, 4, -4]} angle={0.06} penumbra={1} castShadow
                                    shadow-mapSize={[2048, 2048]}/>
                         <Suspense fallback={null}>
-                            <Track position-z={-0.25} url="assets/synth.mp3"/>
-                            <Track position-z={0} url="assets/snare.mp3"/>
-                            <Track position-z={0.25} url="assets/drums.mp3"/>
-                            <Zoom url="assets/drums.mp3"/>
+                            <Track position-z={-0.25} url="assets/sound/synth.mp3"/>
+                            <Track position-z={0} url="assets/sound/snare.mp3"/>
+                            <Track position-z={0.25} url="assets/sound/drums.mp3"/>
+                            <Zoom url="assets/sound/drums.mp3"/>
                         </Suspense>
                         <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.025, 0]}>
                             <planeGeometry/>
@@ -137,29 +129,6 @@ async function createAudio(url) {
             return (data.avg = data.reduce((prev, cur) => prev + cur / data.length, 0))
         },
     }
-}
-
-function Cyl2(props) {
-
-    const ref2 = useRef();
-    const texture = useLoader(THREE.TextureLoader, "assets/texture/getintouch_texture_02.svg");
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    const viewport = useThree((state) => state.viewport)
-    useFrame((state, delta) => (ref2.current.rotation.y -= delta / 3))
-
-    return (
-        <mesh position={[0, 0, 0]} scale={Math.min(viewport.width, viewport.height) / 10} ref={ref2}>
-            <cylinderGeometry {...props} />
-            <meshStandardMaterial
-                map={texture}
-                transparent={true}
-                side={THREE.DoubleSide}
-                depthTest={false}
-                toneMapped={true}
-                map-repeat={[5, 1]}
-            />
-        </mesh>
-    )
 }
 
 export default Sounds;

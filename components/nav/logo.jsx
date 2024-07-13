@@ -1,7 +1,5 @@
-import React from 'react';
+
 import LogoSvg from "@components/nav/svg/logoSvg";
-//import svgIcon from '@public/assets/icons/logo.svg';
-//import Image from "@node_modules/next/dist/client/legacy/image";
 
 const Logo = () => {
     return (

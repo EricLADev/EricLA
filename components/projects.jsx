@@ -1,30 +1,28 @@
 "use client"
 
 import {motion, useScroll, useTransform} from "framer-motion";
-import React, {useRef} from "react";
+import {useRef} from "react";
 import useDimension from "@hook/useDimension";
-import useCursorPosition from "@hook/useCursorPosition";
 import Project from "@components/projects/project";
-import useMouse from "@node_modules/@react-hook/mouse-position";
 import Title from "@components/projects/title";
-import {useMotionValueEvent} from "@node_modules/framer-motion";
-import Sounds from "@components/sounds";
-
+//import Sounds from "@components/sounds";
 
 const Projects = () => {
 
-    const { width, height } = useDimension();
+    const { width } = useDimension();
     const containerProjects = useRef(null);
     const { scrollYProgress } = useScroll({
         //layoutEffect: false,
         target: containerProjects,
         offset: ['start start', 'end end']
     });
+
     //const y01 = useTransform(scrollYProgress, [0,1], [0, (height * .2)]);
     //const r01 = useTransform(scrollYProgress, [0,1], [0, (height * .65)]);
     //const r02 = useTransform(scrollYProgress, [0,1], [0, -(height * .65)]);
     //const x = useMotionValue(0);
     //const x= useTransform(scrollYProgress, [0,1], ['0%', '-75%']);
+
     const x= useTransform(scrollYProgress, [0,1], ['0%', '-75%']);
     const xImageProject= useTransform(scrollYProgress, [0,1], [0, 90]);
 
@@ -75,11 +73,11 @@ const Projects = () => {
             imgs: [
                 {
                     mediaquery: "(min-width: 1024px)",
-                    src: "/assets/images/mockup_mobhouse_desktop-min.jpg"
+                    src: "/assets/images/mockup_mobhouse_desktop_05.jpg"
                 },
                 {
                     mediaquery: "(max-width: 1023px)",
-                    src: "/assets/images/mockup_mobhouse_mobile-min.jpg"
+                    src: "/assets/images/mockup_mobhouse_desktop_05.jpg"
                 }
             ]
         },
@@ -110,24 +108,17 @@ const Projects = () => {
     ];
 
     return (
-        <section ref={containerProjects} id="_projects" className="relative overflow-visible h-auto lg:h-[700vh]">
-
-                <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center lg:overflow-hidden">
-                    <motion.div style={horizontalScroll} className="relative lg:flex lg:gap-0">
-
-                        <Title />
-
-                        {Items.map((project, index) =>
-                            <Project key={`k_${index}`} index={index} id={`project_${index}`}
-                                     scrollXValue={xImageProject} project={project} />
-                        )}
-
-                        {/*<Sounds />*/}
-
-                    </motion.div>
-                </div>
-
-
+        <section ref={containerProjects} id="_projects" className="relative lg:overflow-visible h-auto lg:h-[700vh]">
+            <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center lg:overflow-hidden">
+                <motion.div style={horizontalScroll} className="relative lg:flex lg:gap-0">
+                    <Title />
+                    {Items.map((project, index) =>
+                        <Project key={`k_${index}`} index={index} id={`project_${index}`}
+                                 scrollXValue={xImageProject} project={project} />
+                    )}
+                    {/*<Sounds />*/}
+                </motion.div>
+            </div>
         </section>
     );
 };

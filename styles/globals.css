@@ -1,28 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
-
-@import url("https://fonts.cdnfonts.com/css/hk-groteks");
-
-@font-face {
-    font-family: 'Big John';
-    src: url('../public/assets/fonts/BIG JOHN.otf');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'QanelasSoftDEMO';
-    src: url('../public/assets/fonts/QanelasSoftDEMO-ExtraBold.otf');
-    font-weight: 900;
-    font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -30,7 +9,7 @@
 
 :root {
 
-    --nav-burger-container-width: 50px;
+    --nav-burger-container-width: 60px;
     --nav-burger-container-height: var(--nav-burger-container-width);
 
     --nav-burger-container-width-sm: 70px;
@@ -69,15 +48,15 @@
 
 }
 
-
-@media (prefers-color-scheme: dark) {
-  /*:root {
+/*@media (prefers-color-scheme: dark) {
+  :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-
-  }*/
+  }
 }
+*/
+
 
 /*
     HTML / BODY
@@ -98,54 +77,16 @@ body, section {
     @apply font-system text-zinc-950 bg-zinc-100;
 }
 
-/*
-    smoothScroll with Framer Motion
- */
-
-/*body {
-    overscroll-behavior-y: none;
-    user-select: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.scroll-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    will-change: transform;
-}*/
-
 
 /*
-    SCROLLBAR Hide
- */
-
-.scrollbar-hide::-webkit-scrollbar {
-    padding-top: 5px;
-    padding-right: 20px;
-    display: none;
-}
-
-/* For IE, Edge and Firefox */
-.scrollbar-hide {
-    padding-top: 5px;
-    padding-right: 20px;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-
-/*
-    NAV
+    NAV (to rework...)
  */
 
 #_nav { @apply text-zinc-100 }
-#_overlay { @apply fixed w-full min-h-[100dvh] bg-zinc-950 invisible opacity-0 transition-opacity duration-[200ms] ease-out cursor-pointer }
+#_overlay { @apply fixed w-full min-h-[100vh] bg-zinc-950 invisible opacity-0 transition-opacity duration-[200ms] ease-out cursor-pointer }
 .navOpen #_overlay { @apply visible opacity-80 }
+body { @apply overflow-y-visible }
+body.navOpen { @apply overflow-y-hidden lg:overflow-y-visible }
 
 /* BURGER */
 #_burger_container { @apply flex items-center justify-center
@@ -185,7 +126,7 @@ body, section {
 
 
 /*
-    SECTIONS
+    Sections / Titles
  */
 
 section { @apply overflow-hidden relative z-10 clear-both }
@@ -203,52 +144,9 @@ h2 {
 h3 {
     @apply font-urbanist font-[400] }
 
-/*
-    PROJECTS
- */
-
-.parallax {
-    overflow: hidden;
-    line-height: 0.8;
-    margin: 0;
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.parallax .scroller {
-    @apply flex;
-    /*white-space: nowrap;
-    flex-wrap: nowrap;*/
-}
-
-.parallax span {
-    display: block;
-    margin-right: 30px;
-}
 
 /*
-    SLIDERS (v1)
- */
-/*#_projects .slick-slider,
-#_projects .slick-list,
-#_projects .slick-slide,
-#_projects .slick-track { @apply !min-h-full flex }
-
-#_projects .slick-slider .slick-slide div { @apply w-full }
-#_projects .slick-slider ._slick-slide._img { @apply relative }*/
-/*
-#_projects .slick-slider ._slick-slide._img img { @apply block absolute top-0 left-0 z-0 !w-[100%] !h-[100%] }
-*/
-
-/*#_projects .slick-dots { @apply bottom-10 z-10 }
-#_projects .slick-prev { @apply left-7 z-10 }
-#_projects .slick-next { @apply right-7 z-10 }*/
-
-
-
-/*
-    RESUME
+    Resume
  */
 
 /* Experience / Education */
@@ -289,11 +187,67 @@ h3 {
 ._resume .all-icons .icons-container .icons span span { @apply flex items-center justify-center w-full h-full rounded-full border-[3px] border-white bg-zinc-100 }
 ._resume .all-icons .icons-container .subtitle { @apply text-[11px] uppercase mt-4 }
 
+
 /*
-    CONTACT
+    Contact
  */
 
-/*#_contactForm label.MuiInputLabel-root {
-    font-size: clamp(1.75rem, 10vw, 3rem);
-    line-height: clamp(1.75rem, 10vw, 3rem);
-}*/
+span.copy { @apply flex }
+span.copied { @apply hidden }
+.clicked span.copy { @apply hidden }
+.clicked span.copied { @apply flex }
+
+/* Contact Form SCROLLBAR Hide */
+.scrollbar-hide::-webkit-scrollbar {
+    padding-top: 5px;
+    padding-right: 20px;
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    padding-top: 5px;
+    padding-right: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/*
+    Start Loader
+ */
+
+.loader {
+    width: 4.8px;
+    height: 4.8px;
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 4px;
+    color: #FFF;
+    background: currentColor;
+    box-sizing: border-box;
+    animation: animloader 0.3s 0.3s linear infinite alternate;
+}
+.loader::after,
+.loader::before {
+    content: '';
+    box-sizing: border-box;
+    width: 4.8px;
+    height: 4.8px;
+    border-radius: 4px;
+    background: currentColor;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+    animation: animloader 0.3s 0.45s linear infinite alternate;
+}
+.loader::after {
+    top: -15px;
+    animation-delay: 0s;
+}
+
+@keyframes animloader {
+    0% { width: 4.8px }
+    100% { width: 48px}
+}

@@ -4,36 +4,28 @@ import Resume from "@components/resume";
 import Sounds from "@components/sounds";
 import Contact from "@components/contact";
 import Nav from "@components/nav";
-import Footer from "@components/footer";
 import Projects from "@components/projects";
-
 import SmoothScrolling from "@components/smoothScrolling";
-import Loading from "@app/loading";
-import {Suspense} from "react";
-import Comingsoon from "@components/comingsoon";
+import SplashScreen from "@components/splashscreen";
 
-//import SmoothScroll from "@components/SmoothScroll";
+const Home = async () => {
 
-const Home = () => {
+    await new Promise(resolve => setTimeout(resolve,2000));
 
     return (
-        /*<Suspense fallback={<Loading />}>*/
+        <>
+            <SplashScreen />
             <SmoothScrolling>
                 <Nav />
-                {/*<SmoothScroll>*/}
-                    <main className="app">
-                        {/*<Comingsoon />*/}
-                        <Header />
-                        <Projects />
-                        <Resume />
-
-                        {/*<Sounds />*/}
-                        <Contact />
-                    </main>
-                {/*</SmoothScroll>*/}
-                <Footer />
+                <main className="app">
+                    <Header />
+                    <Projects />
+                    <Resume />
+                    {/*<Sounds />*/}
+                    <Contact />
+                </main>
             </SmoothScrolling>
-        /*</Suspense>*/
+        </>
     );
 };
 

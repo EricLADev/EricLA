@@ -3,6 +3,8 @@ import '@styles/globals.css';
 import '@styles/weather-icons.css';
 import '@styles/open-weather-icons.css';
 import Script from 'next/script'
+import Loading from "@app/loading";
+import {Suspense} from "react";
 
 export const metadata = {
     title: "e-l.a",

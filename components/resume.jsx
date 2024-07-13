@@ -1,12 +1,9 @@
 "use client"
 
 import ResumeHeader from "@components/resume/resumeHeader";
-import ResumeBlock from "@components/resume/resumeBlock";
 import Hirondelles from "@components/resume/hirondelles";
 import { useTransform, useScroll } from "framer-motion";
-import React, {createElement, useEffect, useRef} from "react";
-import {useAnimation, useInView, useMotionValueEvent} from "@node_modules/framer-motion";
-import resumeBkg from "@public/assets/backgrounds/timeline03.svg";
+import {useRef} from "react";
 
 import resume_arrow01 from "@public/assets/icons/resume_arrow01.svg";
 import resume_arrow02 from "@public/assets/icons/resume_arrow02.svg";
@@ -16,15 +13,14 @@ import resume_arrow05 from "@public/assets/icons/resume_arrow05.svg";
 import resume_arrow07 from "@public/assets/icons/resume_arrow07.svg";
 import resume_arrow08 from "@public/assets/icons/resume_arrow08.svg";
 
-import Image from "@node_modules/next/image";
-import {motion, Variants, cubicBezier} from "framer-motion";
+import Image from "next/image";
+import {motion} from "framer-motion";
 import Personal from "@components/resume/personal";
 import Experience from "@components/resume/experience";
 import Skills from "@components/resume/skills";
 import Education from "@components/resume/education";
 import Languages from "@components/resume/languages";
 import Hobbies from "@components/resume/hobbies";
-import circular_helloworld from "@public/assets/icons/circular_helloworld3.svg";
 
 const Resume = () => {
 
@@ -54,7 +50,7 @@ const Resume = () => {
     })*/
 
     return (
-        <section ref={container} id="_resume" className="relative z-20 w-full min-h-[100dvh] h-auto lg:py-52">
+        <section ref={container} id="_resume" className="relative z-20 w-full h-auto lg:py-52">
 
             {/*<motion.div className="absolute z-0 top-[-25%] left-[-10%] w-[120%] min-h-[150%] flex content-center justify-center items-center">*/}
             <motion.div className="absolute z-0 top-[-25%] left-[-5%] w-[110%] min-h-[150%] flex content-center justify-center items-center">
@@ -142,49 +138,6 @@ const Resume = () => {
                 </div>
             </div>
             <Hirondelles/>
-
-            {/*<div className="w-full flex flex-col justify-between lg:flex-row lg:pb-7">
-                    <div id="_personalStatement" className="pb-8 w-full lg:w-[48%]">
-                        <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
-                            <span>Personal Statement</span>
-                        </h3>
-                        <Personal/>
-                    </div>
-                    <div id="_workExperience" className="pb-8 w-full lg:w-[48%]">
-                        <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
-                            <span>Work Experience</span>
-                        </h3>
-                        <Experience/>
-                    </div>
-                </div>
-                <div className="w-full flex flex-col justify-between lg:flex-row lg:pb-7">
-                    <div id="_skills" className="pb-8 w-full lg:w-[48%]">
-                        <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
-                            <span>Skills</span>
-                        </h3>
-                        <Skills/>
-                    </div>
-                    <div id="_education" className="pb-8 w-full lg:w-[48%]">
-                        <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
-                            <span>Education</span>
-                        </h3>
-                        <Education/>
-                    </div>
-                </div>
-                <div className="w-full flex flex-col justify-between lg:flex-row lg:pb-7">
-                    <div id="_languages" className="pb-8 w-full lg:w-[48%]">
-                        <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
-                            <span>Languages</span>
-                        </h3>
-                        <Languages/>
-                    </div>
-                    <div id="_hobbies" className="pb-8 w-full lg:w-[48%]">
-                        <h3 className="text-[1.2rem] border-b-[1px] border-b-zinc-900 border-dashed pb-3 mb-5 overflow-hidden">
-                            <span>Hobbies & Interests</span>
-                        </h3>
-                        <Hobbies/>
-                    </div>
-                </div>*/}
 
         </section>
     );
