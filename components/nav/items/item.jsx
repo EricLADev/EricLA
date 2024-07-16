@@ -32,6 +32,9 @@ const Item = ({ itemIcon, itemTitle, itemLink }) => {
         };
     }
 
+    //console.log(itemTitle);
+    let spanClassName = (itemTitle === 'Sounds') ? 'text-zinc-500' : null;
+
     return (
         <>
             <motion.a
@@ -46,7 +49,7 @@ const Item = ({ itemIcon, itemTitle, itemLink }) => {
                 whileHover="hover"
                 variants={linkVariants}
             >
-                <span>
+                <span className={...spanClassName}>
                     {!isMobile && (
                         <Underscore itemIcon={itemIcon} />
                     )}

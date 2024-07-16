@@ -134,7 +134,7 @@ function Music() {
                 <Image
                     style={{width: '90%', height: '90%'}}
                     src={dotted_11}
-                    alt="Dotted 11"
+                    alt="Dotted"
                     priority
                 />
             </div>
@@ -243,7 +243,7 @@ function Bike() {
                 <Image
                     style={{width: '90%', height: '90%'}}
                     src={dotted_18}
-                    alt="Dotted 18"
+                    alt="Dotted"
                     priority
                 />
             </div>
@@ -260,7 +260,7 @@ function Bike() {
                     <Image
                         style={{width: '55%', height: '55%'}}
                         src={bicycle}
-                        alt="bicycle"
+                        alt="Bicycle"
                         priority
                     />
                     <p className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-[1.5rem] font-medium px-5 py-1">More</p>

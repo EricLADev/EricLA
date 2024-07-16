@@ -42,7 +42,7 @@ const Items = () => {
             key={item.id}
             variants={itemsVariants}
         >
-            <Item itemIcon={item.icon} itemTitle={item.title} itemLink={item.link}/>
+            <Item itemIcon={item.icon} itemTitle={item.title} itemLink={item.link} />
         </motion.li>
     );
 

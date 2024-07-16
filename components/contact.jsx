@@ -167,27 +167,26 @@ const Contact = () => {
                                     whileHover={"hovered"}
                                     variants={tooltipVariant}
                                 >
-                                    {/*<div className="w-full h-full">*/}
-                                        <Suspense>
-                                            <Canvas>
-                                                <ambientLight intensity={2}/>
-                                                {/*<ambientLight intensity={1.5}/>
-                                                <directionalLight intensity={1} position={[10, 10, 10]}/>*/}
-                                                <group rotation-x={0.15} rotation-z={.2}>
-                                                    {/*<Cyl3 args={[1, 1, .4, 50, 50, false]}/>*/}
-                                                    {/*<Cyl5 args={[2.4, 2.4, 3.5, 50, 50, true]}/>*/}
-                                                    <Cyl2 args={[2.5, 2.5, .95, 50, 50, true]}/>
-                                                </group>
-                                                {/*<group rotation-x={0.6} rotation-z={-.1}>
-                                                    <Cyl1 args={[3.15, 3.2, .5, 50, 50, true]}/>
-                                                </group>*/}
-                                                <OrbitControls
-                                                    enableZoom={false}
-                                                    enablePan={false}
-                                                    enableRotate={true}
-                                                />
-                                            </Canvas>
-                                        </Suspense>
+                                    <Suspense>
+                                        <Canvas>
+                                            <ambientLight intensity={2}/>
+                                            {/*<ambientLight intensity={1.5}/>
+                                            <directionalLight intensity={1} position={[10, 10, 10]}/>*/}
+                                            <group rotation-x={0.25} rotation-z={.25}>
+                                                {/*<Cyl3 args={[1, 1, .4, 50, 50, false]}/>*/}
+                                                {/*<Cyl5 args={[2.4, 2.4, 3.5, 50, 50, true]}/>*/}
+                                                <Cyl2 args={[2.75, 2.75, 1, 50, 50, true]}/>
+                                            </group>
+                                            {/*<group rotation-x={0.6} rotation-z={-.1}>
+                                                <Cyl1 args={[3.15, 3.2, .5, 50, 50, true]}/>
+                                            </group>*/}
+                                            <OrbitControls
+                                                enableZoom={false}
+                                                enablePan={false}
+                                                enableRotate={true}
+                                            />
+                                        </Canvas>
+                                    </Suspense>
                                 </motion.div>
                             </HtmlTooltip>
 
@@ -230,32 +229,6 @@ const Contact = () => {
         </>
     );
 };
-
-function Cyl5(props) {
-    const ref2 = useRef();
-
-
-    const texture = useLoader(THREE.TextureLoader, "assets/contact/contactme_02.svg");
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
-    const viewport = useThree((state) => state.viewport)
-    //useFrame((state, delta) => (ref.current.rotation.x = ref2.current.rotation.y += delta / 2))
-    useFrame((state, delta) => (ref2.current.rotation.y -= delta / 10))
-    //useFrame((state, delta) => (ref2.current.rotation.z -= delta / 2))
-    return (
-        <mesh position={[0, 0, 0]} scale={Math.min(viewport.width, viewport.height) / 10} ref={ref2}>
-            <cylinderGeometry {...props} />
-            <meshStandardMaterial
-                map={texture}
-                transparent={true}
-                side={THREE.DoubleSide}
-                depthTest={false}
-                toneMapped={true}
-                map-repeat={[4, 1]}
-            />
-        </mesh>
-    )
-}
 
 function Cyl1(props) {
     const ref1 = useRef();
@@ -308,31 +281,6 @@ function Cyl2(props) {
     )
 }
 
-function Cyl4(props) {
-    const ref2 = useRef();
-
-    const texture = useLoader(THREE.TextureLoader, "assets/contact/getintouch_texture_02.svg");
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
-    const viewport = useThree((state) => state.viewport)
-    //useFrame((state, delta) => (ref.current.rotation.x = ref2.current.rotation.y += delta / 2))
-    useFrame((state, delta) => (ref2.current.rotation.y -= delta / 3))
-    //useFrame((state, delta) => (ref2.current.rotation.z -= delta / 2))
-    return (
-        <mesh position={[0, 0, 0]} rotation-x={.2} rotation-y={.1} scale={Math.min(viewport.width, viewport.height) / 10} ref={ref2}>
-            <cylinderGeometry {...props} />
-            <meshStandardMaterial
-                map={texture}
-                transparent={true}
-                side={THREE.DoubleSide}
-                depthTest={false}
-                toneMapped={true}
-                map-repeat={[3, 1]}
-            />
-        </mesh>
-    )
-}
-
 function Cyl3(props) {
 
     const ref3 = useRef();
@@ -371,6 +319,55 @@ function Cyl3(props) {
                 attach="material-2"
                 side={THREE.DoubleSide}
                 map={bottomMaterial}
+            />
+        </mesh>
+    )
+}
+
+function Cyl4(props) {
+    const ref2 = useRef();
+
+    const texture = useLoader(THREE.TextureLoader, "assets/contact/getintouch_texture_02.svg");
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+
+    const viewport = useThree((state) => state.viewport)
+    //useFrame((state, delta) => (ref.current.rotation.x = ref2.current.rotation.y += delta / 2))
+    useFrame((state, delta) => (ref2.current.rotation.y -= delta / 3))
+    //useFrame((state, delta) => (ref2.current.rotation.z -= delta / 2))
+    return (
+        <mesh position={[0, 0, 0]} rotation-x={.2} rotation-y={.1} scale={Math.min(viewport.width, viewport.height) / 10} ref={ref2}>
+            <cylinderGeometry {...props} />
+            <meshStandardMaterial
+                map={texture}
+                transparent={true}
+                side={THREE.DoubleSide}
+                depthTest={false}
+                toneMapped={true}
+                map-repeat={[3, 1]}
+            />
+        </mesh>
+    )
+}
+
+function Cyl5(props) {
+    const ref2 = useRef();
+    const texture = useLoader(THREE.TextureLoader, "assets/contact/contactme_02.svg");
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+
+    const viewport = useThree((state) => state.viewport)
+    //useFrame((state, delta) => (ref.current.rotation.x = ref2.current.rotation.y += delta / 2))
+    useFrame((state, delta) => (ref2.current.rotation.y -= delta / 10))
+    //useFrame((state, delta) => (ref2.current.rotation.z -= delta / 2))
+    return (
+        <mesh position={[0, 0, 0]} scale={Math.min(viewport.width, viewport.height) / 10} ref={ref2}>
+            <cylinderGeometry {...props} />
+            <meshStandardMaterial
+                map={texture}
+                transparent={true}
+                side={THREE.DoubleSide}
+                depthTest={false}
+                toneMapped={true}
+                map-repeat={[4, 1]}
             />
         </mesh>
     )
