@@ -1,8 +1,10 @@
 "use client"
 
-import getintouch from "@public/assets/contact/getintouch_30_amber.svg";
-import circular_contactme from "@public/assets/contact/circular_contactme_01.svg";
-import arrows01 from "@public/assets/contact/arrows_01_amber.svg";
+import getintouch from "@public/assets/contact/circular_getintouch_stone400.svg";
+import circular_contactme from "@public/assets/contact/circular_contactme_stone400.svg";
+import arrows01 from "@public/assets/contact/circular_arrows1_stone300.svg";
+import vertical from "@public/assets/contact/vertical_01_sky.svg";
+import tech from "@public/assets/contact/circular_tech_stone300.svg";
 
 import {Tooltip} from "@mui/material";
 import {styled, tooltipClasses} from "@node_modules/@mui/material";
@@ -78,6 +80,8 @@ const Contact = () => {
         },
     }));
 
+
+
     return (
         <>
             {/*<section id="_contact" className="w-0 h-0 invisible" />*/}
@@ -86,25 +90,50 @@ const Contact = () => {
                 ref={containerContact}
                 className="relative z-9 w-full lg:min-h-[100vh] h-full flex bg-black overflow-hidden">
 
-                <motion.div style={...stylesAnim} className="bg-amber-500 w-full h-full flex overflow-hidden">
+                <motion.div style={...stylesAnim} className="w-full h-full overflow-hidden">
                 {/*<div className="bg-amber-500 w-full h-full flex overflow-hidden">*/}
+                    <div className="bg-stone-400 w-full h-full flex overflow-hidden">
 
                     {(width>=1024) && (
                         <div
-                            className="relative w-6/12 lg:w-7/12 h-full p-[var(--main-padding-2xl)] hidden lg:flex lg:flex-col justify-center items-center bg-zinc-950">
+                            className="relative w-6/12 lg:w-7/12 h-full p-[var(--main-padding-2xl)] hidden lg:flex lg:flex-col justify-center items-center bg-stone-900">
+
+                            <div className="staticnoise absolute top-0 left-0 w-full h-full z-0 opacity-5"></div>
 
                             {/*<Circular
-                                clssnm={"opacity-20 absolute top-[-.5%] left-[-.5%] size-[101%] flex justify-center items-center"}
+                                clssnm={"opacity-5 absolute top-[-12.5%] left-[-12.5%] size-[125%] flex justify-center items-center"}
+                                baseVelocity={-.55}>
+                                <Image
+                                    style={{width: '100%', height: '100%'}}
+                                    src={vertical}
+                                    alt="vertical"
+                                    priority
+                                />
+                            </Circular>*/}
+
+                            {/*<Circular
+                                clssnm={"opacity-10 absolute top-[1.5%] left-[1.5%] size-[97%] flex justify-center items-center"}
                                 baseVelocity={-.45}>
                                 <Image
                                     style={{width: '100%', height: '100%'}}
-                                    src={arrows01}
-                                    alt="getintouch01"
+                                    src={vertical}
+                                    alt="vertical"
                                     priority
                                 />
                             </Circular>*/}
 
                             <Circular
+                                clssnm={"opacity-30 absolute top-[8.5%] left-[8.5%] size-[83%] flex justify-center items-center"}
+                                baseVelocity={-.95}>
+                                <Image
+                                    style={{width: '100%', height: '100%'}}
+                                    src={arrows01}
+                                    alt="Vertical"
+                                    priority
+                                />
+                            </Circular>
+
+                            {/*<Circular
                                 clssnm={"opacity-40 absolute top-[8.5%] left-[8.5%] size-[83%] flex justify-center items-center"}
                                 baseVelocity={-.95}>
                                 <Image
@@ -113,7 +142,7 @@ const Contact = () => {
                                     alt="Contact"
                                     priority
                                 />
-                            </Circular>
+                            </Circular>*/}
 
                             <Circular
                                 clssnm={"absolute top-[16%] left-[16%] size-[68%] flex justify-center items-center"}
@@ -137,10 +166,21 @@ const Contact = () => {
                                 />
                             </Circular>
 
+                            <Circular
+                                clssnm={"opacity-70 absolute top-[26%] left-[26%] size-[48%] flex justify-center items-center"}
+                                baseVelocity={-.35}>
+                                <Image
+                                    style={{width: '100%', height: '100%'}}
+                                    src={tech}
+                                    alt="Tech"
+                                    priority
+                                />
+                            </Circular>
+
                             <HtmlTooltip
                                 title={
                                     <span
-                                        className="bg-zinc-100 bg-opacity-90 text-zinc-950 pl-[12px] pr-[16px] py-[8px] rounded-[7px] flex justify-center items-center">
+                                        className="bg-zinc-100 bg-opacity-80 text-zinc-950 pl-[12px] pr-[16px] py-[8px] rounded-[7px] flex justify-center items-center">
                                         <motion.span
                                             animate={{opacity: 1}}
                                             transition={{repeat: Infinity, duration: .2}}
@@ -169,22 +209,22 @@ const Contact = () => {
                                 >
                                     <Suspense>
                                         <Canvas>
-                                            <ambientLight intensity={2}/>
-                                            {/*<ambientLight intensity={1.5}/>
-                                            <directionalLight intensity={1} position={[10, 10, 10]}/>*/}
-                                            <group rotation-x={0.25} rotation-z={.25}>
+                                            {/*<ambientLight intensity={2.5}/>*/}
+                                            <ambientLight intensity={.5}/>
+                                            <directionalLight intensity={1.5} position={[10, 10, 10]}/>
+                                            <group rotation-x={0.15} rotation-z={-.15}>
                                                 {/*<Cyl3 args={[1, 1, .4, 50, 50, false]}/>*/}
                                                 {/*<Cyl5 args={[2.4, 2.4, 3.5, 50, 50, true]}/>*/}
-                                                <Cyl2 args={[2.75, 2.75, 1, 50, 50, true]}/>
+                                                <Cyl2 args={[2.6, 2.6, .95, 60, 60, true]}/>
                                             </group>
                                             {/*<group rotation-x={0.6} rotation-z={-.1}>
                                                 <Cyl1 args={[3.15, 3.2, .5, 50, 50, true]}/>
                                             </group>*/}
-                                            <OrbitControls
+                                            {/*<OrbitControls
                                                 enableZoom={false}
                                                 enablePan={false}
                                                 enableRotate={true}
-                                            />
+                                            />*/}
                                         </Canvas>
                                     </Suspense>
                                 </motion.div>
@@ -194,19 +234,20 @@ const Contact = () => {
                     )
                     }
 
-                    <div
-                        className="
+                        <div
+                            className="
                         p-[var(--main-padding-sm)]
                         lg:p-[var(--main-padding-lg)]
                         2xl:p-[var(--main-padding-2xl)]
 
                         relative w-full lg:w-5/12 h-full flex flex-col justify-center mr-10">
-                        <h3 className="uppercase font-extrabold text-[3rem] 3xl:text-[6rem] leading-[.85] pb-10 -ml-[4px]">Say
-                            Hello</h3>
-                        <ContactForm/>
-                    </div>
+                            <div className="staticnoise absolute top-0 left-0 w-[125%] h-full z-0 opacity-5"></div>
+                            <h3 className="uppercase font-extrabold text-[3rem] 3xl:text-[6rem] leading-[.85] pb-10 -ml-[4px]">Say
+                                Hello</h3>
+                            <ContactForm/>
+                        </div>
 
-                    <div className="
+                        <div className="
                             flex lg:hidden
 
                             h-[var(--nav-burger-container-height)]
@@ -221,6 +262,8 @@ const Contact = () => {
                             <li>© Eric L.A. 2024</li>
                             <li>ela.dev.job@gmail.com</li>
                         </ul>
+                    </div>
+
                     </div>
 
                 </motion.div>
@@ -255,9 +298,9 @@ function Cyl1(props) {
 
 
 function Cyl2(props) {
-    const ref2 = useRef();
 
-    const texture = useLoader(THREE.TextureLoader, "assets/contact/text_mail_me_02.svg");
+    const ref2 = useRef();
+    const texture = useLoader(THREE.TextureLoader, "assets/contact/text_me_stone300.svg");
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
     const viewport = useThree((state) => state.viewport)

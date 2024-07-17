@@ -70,7 +70,7 @@ const Header = () => {
 function Hi() {
     return (
         <div
-            className="scale-80 lg:scale-100 absolute -top-16 -left-40 size-52 bg-orange-400 border-8 border-orange-400 -rotate-12 rounded-full overflow-hidden">
+            className="scale-80 lg:scale-100 absolute -top-16 -left-40 size-52 bg-orange-500 border-8 border-orange-500 -rotate-12 rounded-full overflow-hidden">
             <Image
                 fill
                 style={{objectFit: "cover"}}
@@ -248,11 +248,11 @@ function Bike() {
                 />
             </div>
             <div
-                className="absolute -top-24 -right-20 lg:-top-14 lg:-right-20 size-36 lg:size-36 bg-[#f4afce] rounded-full -rotate-12 overflow-hidden">
+                className="absolute -top-24 -right-20 lg:-top-14 lg:-right-20 size-36 lg:size-36 bg-[#e6e7e2] rounded-full -rotate-12 overflow-hidden">
                 <div
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-28 border-[2px] border-dotted border-zinc-950 rounded-full"></div>
                 <div
-                    className="absolute w-1/2 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f4afce]"></div>
+                    className="absolute w-1/2 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#e6e7e2]"></div>
 
                 <div
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center size-28 text-green-600 rounded-full">
@@ -274,7 +274,7 @@ function Bike() {
 function DigitalId() {
     return (
         <div
-            className="scale-90 lg:scale-100 absolute bottom-10 -right-28 size-32 bg-sky-600 rounded-full overflow-hidden">
+            className="scale-90 lg:scale-100 absolute bottom-10 -right-28 size-32 bg-[#c93744] rounded-full overflow-hidden">
             <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center size-28 border-2 border-double border-zinc-950 rotate-12 rounded-full p-5">
                 <Image

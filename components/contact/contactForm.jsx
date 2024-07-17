@@ -28,7 +28,7 @@ const ContactForm = () => {
     const maxCharacterCount = 300;
 
     // just put here for no repetition on the form
-    const tailWErrorClassName = "text-red-700 text-xs bg-zinc-300 pt-1 pb-1 pl-2 pr-2 mt-1 hidden";
+    const tailWErrorClassName = "text-red-700 text-xs bg-stone-300 pt-1 pb-1 pl-2 pr-2 mt-1 hidden";
 
     // useForm
     const { register, handleSubmit, formState: { isSubmitted, isSubmitting,  isSubmitSuccessful, errors }, reset } = useForm();
@@ -154,14 +154,14 @@ const ContactForm = () => {
             className="relative"
             id="_contactForm"
         >
-            <motion.div
+            {/*<motion.div
                 id="_loading-contact"
-                className="absolute z-0 top-0 left-0 w-full h-full bg-amber-500 opacity-0 flex justify-center items-center"
+                className="absolute z-0 top-0 left-0 w-full h-full bg-stone-500 opacity-0 flex justify-center items-center"
                 initial={"nok"}
                 animate={isLoading ? "ok" : "nok"}
                 variants={loadingVariants}
             >
-            </motion.div>
+            </motion.div>*/}
             <fieldset>
                 <div className="pt-3 flex items-start">
                     {/*<div className="uppercase text-5xl min-w-[500px] text-right pr-2 pt-[2rem]">First Name</div>*/}
@@ -211,15 +211,15 @@ const ContactForm = () => {
                 <ErrorMessage errors={errors} name="message" render={({message}) => <p className={tailWErrorClassName}>{message}</p>}/>
                 <div className="pt-3 flex items-center">
                     <div>
-                        {/*<div className="w-auto border-[1px] border-zinc-950 rounded-full overflow-hidden">*/}
+                        {/*<div className="w-auto border-[1px] border-stone-950 rounded-full overflow-hidden">*/}
                             <ContactButton id="contactButton"
-                                           className="size-18 lg:size-20 3xl:size-32 bg-zinc-900 disabled:bg-amber-800 flex justify-center items-center"
+                                           className="size-18 lg:size-20 3xl:size-32 bg-stone-900 disabled:bg-stone-800 flex justify-center items-center"
                                            disabled={buttonIsDisabled} type="submit" variant="contained">
 
                                 {isLoading && (
                                     <span className="_loader">
                                         <svg aria-hidden="true"
-                                             className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-zinc-400"
+                                             className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-stone-400"
                                              viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
@@ -231,21 +231,21 @@ const ContactForm = () => {
                                     </span>
                                 )}
                                 {(!isLoading && !success && !error) && (
-                                    <span className="_send text-amber-500">SEND</span>
-                                    /*<span className="_send"><SendIcon className="text-2xl text-amber-500"/></span>*/
+                                    <span className="_send text-stone-400">SEND</span>
+                                    /*<span className="_send"><SendIcon className="text-2xl text-stone-500"/></span>*/
                                 )}
                                 {success && (
-                                    <span className="text-[.7rem] text-amber-500"><CheckIcon/></span>
+                                    <span className="text-[.7rem] text-stone-400"><CheckIcon/></span>
                                 )}
                                 {error && (
-                                    <span className="text-[.7rem] text-amber-500"><ErrorIcon/></span>
+                                    <span className="text-[.7rem] text-stone-400"><ErrorIcon/></span>
                                 )}
                             </ContactButton>
                         {/*</div>*/}
                     </div>
                     <div className="ml-5 w-auto lg:w-auto">
                         { success && (
-                            <span className="text-[.85rem] font-medium text-zinc-900 leading-[1.25rem]">{successMessage}</span>
+                            <span className="text-[.85rem] font-medium text-stone-900 leading-[1.25rem]">{successMessage}</span>
                         )}
                         { error && (
                             <span className="text-[.85rem] font-medium text-[#c2410c] leading-[1.25rem]">{errorMessage}</span>

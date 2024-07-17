@@ -11,19 +11,19 @@ const Title = ({myText}) => {
 
     return (
         <div ref={containerTitle}
-             className="relative w-full lg:w-screen h-screen flex flex-col overflow-hidden bg-sky-200 opacity-100">
+             className="relative w-full lg:w-screen h-screen flex flex-col overflow-hidden bg-slate-300 opacity-80">
             <div className="
                 relative -top-[25%] -left-[20%] -rotate-12 w-[140%]
-                uppercase font-urbanist text-sky-100 text-[10vh] lg:text-[15vh] font-[900]
+                uppercase font-urbanist text-blue-100 text-[10vh] lg:text-[15vh] font-[900]
                 ">
                 <div className=""><ParallaxText baseVelocity={.40}>DerniersProjets#</ParallaxText></div>
                 <div className="text-[6vh] lg:text-[10vh] font-[500]"><ParallaxText baseVelocity={-.45}>LastProjects#</ParallaxText></div>
                 <div className="text-[6vh] lg:text-[10vh]"><ParallaxText baseVelocity={.35}>DerniersProjets#</ParallaxText></div>
-                <div className="font-pixelify font-[500]"><ParallaxText baseVelocity={.20}>LastProjects#</ParallaxText></div>
+                <div className="font-[500]"><ParallaxText baseVelocity={.20}>LastProjects#</ParallaxText></div>
                 <div><ParallaxText baseVelocity={.45}>DerniersProjets#</ParallaxText></div>
                 <div className="font-[500]"><ParallaxText baseVelocity={-.40}>LastProjects#</ParallaxText></div>
                 <div className=""><ParallaxText baseVelocity={.60}>DerniersProjets#</ParallaxText></div>
-                <div className="font-pixelify font-[500]"><ParallaxText baseVelocity={-.95}>LastProjects#</ParallaxText></div>
+                <div className="font-[500]"><ParallaxText baseVelocity={-.95}>LastProjects#</ParallaxText></div>
                 <div className="text-[18vh] lg:text-[22vh] font-[300]"><ParallaxText baseVelocity={.40}>DerniersProjets#</ParallaxText></div>
                 <div className="text-[21vh] lg:text-[27vh]"><ParallaxText baseVelocity={.65}>LastProjects#</ParallaxText></div>
                 <div className=""><ParallaxText baseVelocity={.40}>DerniersProjets#</ParallaxText></div>

@@ -6,12 +6,11 @@ const Skills = () => {
             <div>
                 <h4>I worked a lot on:</h4>
                 <ul>
+                    <li>Magento</li>
                     <li>HTML</li>
                     <li>CSS / SCSS</li>
-                    <li>Javascript</li>
                     <li>jQuery</li>
-                    <li>Magento</li>
-                    <li>PHP / MySQL</li>
+                    <li>Javascript</li>
                     <li>GIT</li>
                 </ul>
             </div>
@@ -21,8 +20,8 @@ const Skills = () => {
                     <li>React / Next.js</li>
                     <li>Tailwind CSS</li>
                     <li>Frame Motion</li>
-                    <li>P5 JS</li>
                     <li>Three JS</li>
+                    <li>P5 JS</li>
                 </ul>
             </div>
             <div>

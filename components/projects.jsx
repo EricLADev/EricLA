@@ -86,8 +86,8 @@ const Projects = () => {
             title: "Arr",
             description: "A personal Website about sound and music production, with some sound libraries for sale, blog articles, video tutorials...",
             details: [
-                "Next JS / React development",
-                "WooCommerce / Wordpress as a Headless CMS",
+                "Next JS / React",
+                "Shopify as a Headless CMS",
                 "Tailwind CSS / Framer Motion"
             ],
             underContruction: true,

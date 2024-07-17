@@ -8,7 +8,7 @@ import {Suspense} from "react";
 
 export const metadata = {
     title: "e-l.a",
-    description: "About me, my works and projects.."
+    description: "About my works and projects.."
 }
 
 const RootLayout = ( {children} ) => {
@@ -16,9 +16,9 @@ const RootLayout = ( {children} ) => {
     return (
         /*<html lang="en" className='dark'>*/
         <html lang="en">
-            <body>
-                {children}
-            </body>
+        <body>
+        {children}
+        </body>
         </html>
     );
 };

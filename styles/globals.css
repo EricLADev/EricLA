@@ -212,6 +212,11 @@ span.copied { @apply hidden }
     scrollbar-width: none;  /* Firefox */
 }
 
+.staticnoise {
+    background: url("../public/assets/contact/static_noise.gif");
+    @apply bg-opacity-10;
+}
+
 /*
     Start Loader
  */

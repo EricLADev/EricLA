@@ -7,7 +7,7 @@ const Experience = () => {
                 <div className="details">
                     <h4>From 2016 to 2023</h4>
                     <p><i>Fullstack Developer - Freelance - Paris</i></p>
-                    <p>Frontend and Backend Developer, working on projects mainly on CMS MAGENTO or Wordpress.</p>
+                    <p>Frontend and Backend Development, working on projects mainly on CMS MAGENTO or Wordpress.</p>
                     <p>"Pain de Sucre", "Optic 2000", "MOBHOTEL" ...</p>
 
                 </div>
