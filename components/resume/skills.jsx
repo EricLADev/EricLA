@@ -9,13 +9,14 @@ const Skills = () => {
                     <li>Magento</li>
                     <li>HTML</li>
                     <li>CSS / SCSS</li>
+                    <li>PHP</li>
                     <li>jQuery</li>
                     <li>Javascript</li>
                     <li>GIT</li>
                 </ul>
             </div>
             <div>
-                <h4>I am new to:</h4>
+                <h4>Since this year, I like working with:</h4>
                 <ul>
                     <li>React / Next.js</li>
                     <li>Tailwind CSS</li>
