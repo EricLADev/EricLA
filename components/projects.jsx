@@ -45,7 +45,7 @@ const Projects = () => {
                 "Development Newsletters",
             ],
             underContruction: false,
-            link: "https://www.mobhotel.com/",
+            link: "https://www.mobhotel.com/paris/",
             logo: "/assets/images/logo_mht-min.jpg",
             imgs: [
                 {
